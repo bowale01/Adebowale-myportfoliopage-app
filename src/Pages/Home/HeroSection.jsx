@@ -28,7 +28,7 @@ export default function HeroSection() {
             </Link>
             <button 
               onClick={() => {
-                window.open("/Adeleke_Adebowale_Julius_Resume_.pdf", '_blank', 'noopener noreferrer')
+                window.open("/certifications/Adeleke_Adebowale_Julius_Resume_.pdf", '_blank', 'noopener noreferrer')
               }}
               className="btn btn-outline-primary"
             >

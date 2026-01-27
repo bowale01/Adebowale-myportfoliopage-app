@@ -138,7 +138,7 @@ function Navbar() {
               <Link
                 onClick={() => {
                   closeMenu();
-                  window.open("/Adeleke_Adebowale_Julius_Resume_.pdf", "_blank", "noopener,noreferrer");
+                  window.open("/certifications/Adeleke_Adebowale_Julius_Resume_.pdf", "_blank", "noopener,noreferrer");
                 }}
                 className="navbar--content"
               >
