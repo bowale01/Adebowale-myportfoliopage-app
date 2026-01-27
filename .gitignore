@@ -35,3 +35,8 @@ infra/terraform.tfvars
 *.key
 *.ppk
 .env
+
+# Infrastructure scripts with sensitive data
+dns-records.json
+setup-ssl.sh
+*-ssl.sh
