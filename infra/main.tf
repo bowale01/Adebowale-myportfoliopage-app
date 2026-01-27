@@ -81,6 +81,14 @@ resource "aws_security_group" "web_sg" {
   }
 
   ingress {
+    description = "Allow Production Environment (port 3000)"
+    from_port   = 3000
+    to_port     = 3000
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
     description = "Allow Dev Environment (port 3001)"
     from_port   = 3001
     to_port     = 3001

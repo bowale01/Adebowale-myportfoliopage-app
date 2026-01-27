@@ -205,8 +205,8 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 📧 Contact
 
-**Debolek**
-- Website: [https://debolek.dev](https://debolek.dev)
+**Adeleke Adebowale Julius**
+- Website: [https://adelekeadebowale.com](https://adelekeadebowale.com)
 - GitHub: [@bowale01](https://github.com/bowale01)
 - LinkedIn: [linkedin.com/in/debolek](https://www.linkedin.com/in/debolek/)
 - Email: debolek4dem@gmail.com

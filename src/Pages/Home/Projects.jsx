@@ -10,7 +10,7 @@ export default function MyProjects() {
     image: "/img/projects/placeholder.svg",
     tech: ["AWS", "Terraform", "Docker", "NGINX", "GitHub Actions"],
     repoUrl: "https://github.com/bowale01/portfolio",
-    demoUrl: "https://debolek.dev"
+    demoUrl: "https://adelekeadebowale.com"
   },
   {
     id: 2,
@@ -28,7 +28,7 @@ export default function MyProjects() {
     image: "/img/projects/placeholder.svg",
     tech: ["Prometheus", "Grafana", "Docker", "Node Exporter"],
     repoUrl: "https://github.com/bowale01/monitoring",
-    demoUrl: "https://monitor.debolek.dev"
+    demoUrl: "https://adelekeadebowale.com"
   }
 ];
 

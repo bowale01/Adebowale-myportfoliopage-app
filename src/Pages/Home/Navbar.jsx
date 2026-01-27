@@ -52,7 +52,7 @@ function Navbar() {
     <nav className={`navbar ${navActive ? "active" : ""} ${scrolled ? "scrolled" : ""}`}>
       <div className="navbar-container">
         <div className="navbar-logo">
-          <a href="https://debolek.dev" className="logo-text">
+          <a href="https://adelekeadebowale.com" className="logo-text">
             <span className="logo-name">ADELEKE ADEBOWALE JULIUS (M.Sc., B.Tech, Mini MBA)</span>
           </a>
         </div>
