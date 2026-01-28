@@ -1,5 +1,7 @@
 # Quick Reference Card - Portfolio Deployment
 
+> **⚠️ SECURITY NOTE:** This guide includes example values from the original deployment. IP addresses, instance IDs, VPC IDs, and security group IDs shown are public infrastructure identifiers included for reference only. Replace with your own values when using these commands.
+
 ## 🔗 Important URLs
 - **Portfolio:** https://adelekeadebowale.com
 - **GitHub Repo:** https://github.com/bowale01/Adebowale-myportfoliopage-app
@@ -8,12 +10,12 @@
 - **Docker Hub:** https://hub.docker.com/r/debolek/portfolio
 
 ## 📊 Infrastructure Details
-- **EC2 Instance ID:** i-0d3ae9925f9d0fd1b
-- **Public IP:** 184.72.153.228
+- **EC2 Instance ID:** <YOUR_INSTANCE_ID>
+- **Public IP:** <YOUR_EC2_PUBLIC_IP>
 - **Instance Type:** t2.micro
 - **Region:** us-east-1 (US East - N. Virginia)
-- **VPC ID:** vpc-0f86e47d77926ce6a
-- **Security Group:** sg-0b899636ff5bdad9f
+- **VPC ID:** <YOUR_VPC_ID>
+- **Security Group:** <YOUR_SECURITY_GROUP_ID>
 
 ## 🔑 Access Information
 - **SSH Key:** debolek-ec2-access.pem (local file)

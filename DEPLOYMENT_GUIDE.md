@@ -349,5 +349,3 @@ If you encounter issues:
 4. Check container logs: `docker logs <container-name>`
 
 ---
-
-**Congratulations! 🎉** Your portfolio is now deployed on AWS with a complete multi-environment CI/CD pipeline!

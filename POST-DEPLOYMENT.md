@@ -1,5 +1,7 @@
 # Post-Deployment Checklist for adelekeadebowale.com
 
+> **⚠️ DOCUMENTATION NOTE:** This guide includes example values (IP: 184.72.153.228, etc.) from the original deployment. These are public infrastructure identifiers included for reference only. Replace with your own values when using these commands.
+
 ## ✅ Completed
 - [x] AWS EC2 instance deployed
 - [x] Docker & Nginx configured

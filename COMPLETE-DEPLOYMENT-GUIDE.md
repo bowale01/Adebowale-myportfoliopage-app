@@ -1,6 +1,8 @@
 # Complete AWS Deployment Guide: Portfolio Website with CI/CD
 ## Step-by-Step Documentation - Everything We Achieved
 
+> **⚠️ DOCUMENTATION NOTE:** This guide contains example values (IP addresses like 184.72.153.228, instance IDs, security group IDs, etc.) from the original deployment for reference purposes. These are public infrastructure identifiers that are meant to be publicly accessible and pose no security risk. When following this guide, replace these with your own values from your AWS deployment.
+
 **Project:** Adeleke Adebowale Julius Portfolio Website  
 **Final URL:** https://adelekeadebowale.com  
 **Date Completed:** January 27, 2026
