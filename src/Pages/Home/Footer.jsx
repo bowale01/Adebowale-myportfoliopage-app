@@ -24,7 +24,7 @@ function Footer() {
       
       <div className="footer--content--wrapper">
         <div className="footer--branding">
-          <span className="footer--logo-text">ADELEKE ADEBOWALE JULIUS (M.Sc., B.Tech, Mini MBA)</span>
+          <span className="footer--logo-text">ADEBOWALE</span>
         </div>
         
         <div className="footer--items">

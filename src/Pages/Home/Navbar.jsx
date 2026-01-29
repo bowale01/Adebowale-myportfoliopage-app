@@ -53,7 +53,7 @@ function Navbar() {
       <div className="navbar-container">
         <div className="navbar-logo">
           <a href="https://adelekeadebowale.com" className="logo-text">
-            <span className="logo-name">ADELEKE ADEBOWALE JULIUS (M.Sc., B.Tech, Mini MBA)</span>
+            <span className="logo-name">ADEBOWALE</span>
           </a>
         </div>
         
