@@ -35,6 +35,19 @@ export default function AboutMe() {
               
               <div className="credential-item">
                 <div className="credential-icon">
+                  <i className="fas fa-graduation-cap"></i>
+                </div>
+                <div className="credential-content">
+                  <h3 className="credential-title">Education</h3>
+                  <p className="credential-text">M.Sc in Telecommunication Engineering</p>
+                  <p className="credential-subtext">Università Degli Studi di Genova, Italy</p>
+                  <p className="credential-text" style={{marginTop: '10px'}}>B.Tech in Computer Engineering</p>
+                  <p className="credential-subtext">Ladoke Akintola University of Technology</p>
+                </div>
+              </div>
+              
+              <div className="credential-item">
+                <div className="credential-icon">
                   <i className="fas fa-award"></i>
                 </div>
                 <div className="credential-content">
