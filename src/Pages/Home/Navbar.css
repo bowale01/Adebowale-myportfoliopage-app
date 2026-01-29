@@ -39,6 +39,16 @@
   text-decoration: none;
 }
 
+.navbar-logo .logo-image {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+}
+
+.navbar.scrolled .logo-image {
+  height: 40px;
+}
+
 .navbar--items {
   display: flex;
   align-items: center;

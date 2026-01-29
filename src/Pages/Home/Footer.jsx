@@ -24,7 +24,7 @@ function Footer() {
       
       <div className="footer--content--wrapper">
         <div className="footer--branding">
-          <span className="footer--logo-text">ADEBOWALE</span>
+          <img src="./img/logo.ong.png" alt="Logo" className="footer-logo-image" />
         </div>
         
         <div className="footer--items">

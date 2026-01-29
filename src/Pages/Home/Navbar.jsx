@@ -52,8 +52,8 @@ function Navbar() {
     <nav className={`navbar ${navActive ? "active" : ""} ${scrolled ? "scrolled" : ""}`}>
       <div className="navbar-container">
         <div className="navbar-logo">
-          <a href="https://adelekeadebowale.com" className="logo-text">
-            <span className="logo-name">ADEBOWALE</span>
+          <a href="https://adelekeadebowale.com" className="logo-link">
+            <img src="./img/logo.ong.png" alt="Logo" className="logo-image" />
           </a>
         </div>
         

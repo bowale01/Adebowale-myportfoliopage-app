@@ -61,6 +61,12 @@
   color: #ffffff;
 }
 
+.footer--branding .footer-logo-image {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+
 .footer--items ul,
 .footer--social ul {
   list-style: none;
