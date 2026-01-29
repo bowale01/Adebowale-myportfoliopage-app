@@ -7,13 +7,14 @@ export default function HeroSection() {
     <header className="hero-section">
       <div className="hero-container">
         <div className="hero-content">
-          <h2 className="hero-subtitle">Hey, I'm Adebowale</h2>
+          <h2 className="hero-subtitle">Hello, I'm Adebowale</h2>
           <h1 className="hero-title">
             <span className="hero-title-primary">Senior Cloud</span> | 
             <span className="hero-title-secondary"> DevOps Engineer</span>
           </h1>
           <p className="hero-description">
-            Turning code into containers and pipelines into production. Modern applications demand more than code, they need robust, automated, and secure infrastructure. That's what I build.
+            Turning code into containers and pipelines into production.
+            I design and operate secure, automated cloud platforms that scale with your business.
           </p>
           <div className="hero-buttons">
             <Link
