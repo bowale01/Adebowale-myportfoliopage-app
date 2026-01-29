@@ -24,7 +24,7 @@ function Footer() {
       
       <div className="footer--content--wrapper">
         <div className="footer--branding">
-          <img src="./img/logo.ong.png" alt="Logo" className="footer-logo-image" />
+          <img src="./img/logo.png" alt="Logo" className="footer-logo-image" />
         </div>
         
         <div className="footer--items">

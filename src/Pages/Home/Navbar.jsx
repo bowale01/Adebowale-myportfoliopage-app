@@ -53,7 +53,7 @@ function Navbar() {
       <div className="navbar-container">
         <div className="navbar-logo">
           <a href="https://adelekeadebowale.com" className="logo-link">
-            <img src="./img/logo.ong.png" alt="Logo" className="logo-image" />
+            <img src="./img/logo.png" alt="Logo" className="logo-image" />
           </a>
         </div>
         
