@@ -28,8 +28,8 @@ export default function AboutMe() {
                 </div>
                 <div className="credential-content">
                   <h3 className="credential-title">Experience</h3>
-                  <p className="credential-text">10+ Years in IT</p>
-                  <p className="credential-subtext">Senior Cloud Engineer & SRE</p>
+                  <p className="credential-text">13+ Years in IT</p>
+                  <p className="credential-subtext">Senior Cloud & DevOps Engineer</p>
                 </div>
               </div>
               
