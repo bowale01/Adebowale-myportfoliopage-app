@@ -68,7 +68,7 @@ export default function AboutMe() {
           
           <div className="about-right-column">
             <p className="about-description">
-              As an experienced Senior Cloud Engineer and SRE, I bring over 10 years of IT expertise, specializing in cloud infrastructure, DevOps, and system optimization. My background spans AWS, Azure DevOps, Kubernetes (EKS, AKS, GKE), and automation, with a focus on cost reduction, reliability, and efficient CI/CD workflows.
+              As an experienced Senior Cloud Engineer and SRE, I bring over 13 years of IT expertise, specializing in cloud infrastructure, DevOps, and system optimization. My background spans AWS, Azure DevOps, Kubernetes (EKS, AKS, GKE), and automation, with a focus on cost reduction, reliability, and efficient CI/CD workflows.
             </p>
             
             <p className="about-description">
