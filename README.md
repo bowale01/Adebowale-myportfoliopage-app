@@ -59,8 +59,8 @@ A modern, cloud-native portfolio website showcasing DevOps and cloud engineering
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/debolek/portfolio.git
-   cd portfolio
+   git clone https://github.com/bowale01/Adebowale-myportfoliopage-app.git
+   cd Adebowale-myportfoliopage-app
    ```
 
 2. **Install dependencies**
@@ -84,12 +84,12 @@ A modern, cloud-native portfolio website showcasing DevOps and cloud engineering
 
 1. **Build the Docker image**
    ```bash
-   docker build -t debolek/portfolio:latest .
+   docker build -t bowale01/portfolio:latest .
    ```
 
 2. **Run the container locally**
    ```bash
-   docker run -d -p 3000:80 --name portfolio debolek/portfolio:latest
+   docker run -d -p 3000:80 --name portfolio bowale01/portfolio:latest
    ```
 
 3. **Access the application**
@@ -148,7 +148,7 @@ A modern, cloud-native portfolio website showcasing DevOps and cloud engineering
 ## 🏗️ Project Structure
 
 ```
-debolek-portfolio/
+Adebowale-myportfoliopage-app/
 ├── .github/
 │   └── workflows/
 │       └── deploy.yml          # CI/CD pipeline
