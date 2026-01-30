@@ -23,7 +23,7 @@ export default function MyProjects() {
   const projects = [
   {
     id: 1,
-    title: "Cloud Portfolio Infrastructure",
+    title: "Secured Cloud Portfolio Infrastructure",
     description: "Production-grade, containerized portfolio website deployed on AWS EC2 with automated CI/CD, HTTPS, and infrastructure as code.",
     image: "https://github.com/user-attachments/assets/7298da32-7021-4696-a0be-e286905be045",
     tech: ["AWS", "Terraform", "Docker", "NGINX", "GitHub Actions"],
