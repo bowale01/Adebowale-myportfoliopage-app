@@ -63,6 +63,34 @@ export default function AboutMe() {
                   </a>
                 </div>
               </div>
+
+              <div className="credential-item">
+                <div className="credential-icon">
+                  <i className="fas fa-users"></i>
+                </div>
+                <div className="credential-content">
+                  <h3 className="credential-title">AWS Community Recognition</h3>
+                  <p className="credential-text">AWS Community Builder</p>
+                  <a 
+                    href="https://builder.aws.com/community/@debolek?tab=articles" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="credential-link"
+                  >
+                    View Profile <i className="fas fa-external-link-alt"></i>
+                  </a>
+                  <p className="credential-text" style={{marginTop: '10px'}}>AWS re:Post Top Contributor</p>
+                  <p className="credential-subtext">Top 6 Contributor Worldwide</p>
+                  <a 
+                    href="https://repost.aws/community/users/USnbGpi4R9Rt24l2EcEd3LpA" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="credential-link"
+                  >
+                    View re:Post Profile <i className="fas fa-external-link-alt"></i>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
           
