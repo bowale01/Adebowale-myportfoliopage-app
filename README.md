@@ -1,9 +1,12 @@
-# Debolek Portfolio Website
+# Adebowale Portfolio Website
 
 ![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![Terraform](https://img.shields.io/badge/Terraform-7B42BC?style=for-the-badge&logo=terraform&logoColor=white)
 ![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+
+<img width="1911" height="1024" alt="image" src="https://github.com/user-attachments/assets/7298da32-7021-4696-a0be-e286905be045" />
+
 
 A modern, cloud-native portfolio website showcasing DevOps and cloud engineering projects. Built with React and deployed on AWS using containerization, infrastructure as code, and automated CI/CD pipelines.
 
