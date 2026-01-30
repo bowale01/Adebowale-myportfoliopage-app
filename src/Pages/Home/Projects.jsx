@@ -89,7 +89,11 @@ export default function MyProjects() {
               <div 
                 className="project-image"
                 style={{ backgroundImage: `url(${project.image})` }}
-              />
+              >
+                {project.id === 1 && (
+                  <div className="project-status-badge">Completed</div>
+                )}
+              </div>
               <div className="project-content">
                 <h3 className="project-title">{project.title}</h3>
                 <p className="project-description">{project.description}</p>

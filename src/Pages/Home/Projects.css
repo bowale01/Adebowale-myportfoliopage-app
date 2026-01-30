@@ -81,6 +81,20 @@
   background-size: cover;
   background-position: center;
   background-color: #e5e7eb;
+  position: relative;
+}
+
+.project-status-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background-color: #10b981;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
 }
 
 .project-content {
