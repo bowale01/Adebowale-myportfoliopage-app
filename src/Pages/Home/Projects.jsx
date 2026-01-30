@@ -5,6 +5,7 @@ export default function MyProjects() {
   const [selectedProject, setSelectedProject] = useState(null);
 
   const techIcons = {
+    "AWS": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
     "AWS EC2": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
     "VPC": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
     "Security Groups": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
@@ -26,7 +27,7 @@ export default function MyProjects() {
     title: "Secured Cloud Portfolio Infrastructure",
     description: "Production-grade, containerized portfolio website deployed on AWS EC2 with automated CI/CD, HTTPS, and infrastructure as code.",
     image: "https://github.com/user-attachments/assets/7298da32-7021-4696-a0be-e286905be045",
-    tech: ["AWS", "Terraform", "Docker", "NGINX", "GitHub Actions"],
+    tech: ["AWS", "Terraform", "Docker", "NGINX", "Route 53", "GitHub Actions", "Certbot"],
     repoUrl: "https://github.com/bowale01/Adebowale-myportfoliopage-app",
     demoUrl: "https://adelekeadebowale.com",
     details: {
@@ -99,7 +100,10 @@ export default function MyProjects() {
                 <p className="project-description">{project.description}</p>
                 <div className="project-tech">
                   {project.tech.map((tech, index) => (
-                    <span className="tech-tag" key={index}>{tech}</span>
+                    <span className="tech-tag-with-icon" key={index}>
+                      {techIcons[tech] && <img src={techIcons[tech]} alt={tech} className="tech-icon-small" />}
+                      {tech}
+                    </span>
                   ))}
                 </div>
                 <div className="project-links">
