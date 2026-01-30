@@ -25,7 +25,7 @@ export default function MyProjects() {
     id: 1,
     title: "Cloud Portfolio Infrastructure",
     description: "Production-grade, containerized portfolio website deployed on AWS EC2 with automated CI/CD, HTTPS, and infrastructure as code.",
-    image: "/img/projects/placeholder.svg",
+    image: "https://github.com/user-attachments/assets/7298da32-7021-4696-a0be-e286905be045",
     tech: ["AWS", "Terraform", "Docker", "NGINX", "GitHub Actions"],
     repoUrl: "https://github.com/bowale01/Adebowale-myportfoliopage-app",
     demoUrl: "https://adelekeadebowale.com",
