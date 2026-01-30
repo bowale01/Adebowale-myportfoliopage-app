@@ -9,7 +9,7 @@ export default function MyProjects() {
     description: "Production-grade, containerized portfolio website deployed on AWS EC2 with automated CI/CD, HTTPS, and infrastructure as code.",
     image: "/img/projects/placeholder.svg",
     tech: ["AWS", "Terraform", "Docker", "NGINX", "GitHub Actions"],
-    repoUrl: "https://github.com/bowale01/portfolio",
+    repoUrl: "https://github.com/bowale01/Adebowale-myportfoliopage-app",
     demoUrl: "https://adelekeadebowale.com"
   },
   {
