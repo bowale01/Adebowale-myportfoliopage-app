@@ -87,7 +87,7 @@
 .project-status-badge {
   position: absolute;
   top: 1rem;
-  left: 1rem;
+  right: 1rem;
   background-color: #10b981;
   color: white;
   padding: 0.5rem 1rem;
