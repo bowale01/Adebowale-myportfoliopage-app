@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./Projects.css";
 
 export default function MyProjects() {
+  const [selectedProject, setSelectedProject] = useState(null);
+
   const projects = [
   {
     id: 1,
@@ -10,7 +12,19 @@ export default function MyProjects() {
     image: "/img/projects/placeholder.svg",
     tech: ["AWS", "Terraform", "Docker", "NGINX", "GitHub Actions"],
     repoUrl: "https://github.com/bowale01/Adebowale-myportfoliopage-app",
-    demoUrl: "https://adelekeadebowale.com"
+    demoUrl: "https://adelekeadebowale.com",
+    details: {
+      overview: "Built a secure and scalable portfolio website infrastructure from scratch using AWS, Docker, Terraform, and GitHub Actions. Features HTTPS via Certbot, automated deployments, and resilient architecture in a custom VPC with complete infrastructure as code implementation.",
+      highlights: [
+        "Terraform-based infrastructure as code (IaC) for AWS resource provisioning",
+        "CI/CD pipeline with GitHub Actions and Docker Hub integration",
+        "HTTPS with automated SSL certificate renewal via Certbot and Let's Encrypt",
+        "Custom VPC and public subnet with hardened security groups",
+        "NGINX reverse proxy configuration with multi-stage Docker builds",
+        "Route 53 DNS management with domain configuration",
+        "Production-grade deployment with container restart policies"
+      ]
+    }
   },
   {
     id: 2,
@@ -65,6 +79,14 @@ export default function MyProjects() {
                   ))}
                 </div>
                 <div className="project-links">
+                  {project.details && (
+                    <button 
+                      onClick={() => setSelectedProject(project)}
+                      className="project-link-btn"
+                    >
+                      <i className="fas fa-info-circle"></i> Details
+                    </button>
+                  )}
                   <a 
                     href={project.repoUrl} 
                     target="_blank" 
@@ -87,6 +109,65 @@ export default function MyProjects() {
           ))}
         </div>
       </div>
+
+      {selectedProject && (
+        <div className="project-modal-overlay" onClick={() => setSelectedProject(null)}>
+          <div className="project-modal" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={() => setSelectedProject(null)}>
+              <i className="fas fa-times"></i>
+            </button>
+            <h2 className="modal-title">{selectedProject.title}</h2>
+            
+            <div className="modal-section">
+              <h3 className="modal-section-title">
+                <i className="fas fa-info-circle"></i> Overview
+              </h3>
+              <p className="modal-text">{selectedProject.details.overview}</p>
+            </div>
+
+            <div className="modal-section">
+              <h3 className="modal-section-title">
+                <i className="fas fa-layer-group"></i> Tech Stack
+              </h3>
+              <div className="modal-tech-tags">
+                {selectedProject.tech.map((tech, index) => (
+                  <span className="modal-tech-tag" key={index}>{tech}</span>
+                ))}
+              </div>
+            </div>
+
+            <div className="modal-section">
+              <h3 className="modal-section-title">
+                <i className="fas fa-star"></i> Key Highlights
+              </h3>
+              <ul className="modal-highlights">
+                {selectedProject.details.highlights.map((highlight, index) => (
+                  <li key={index}>{highlight}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="modal-actions">
+              <a 
+                href={selectedProject.repoUrl} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="modal-btn modal-btn-primary"
+              >
+                <i className="fab fa-github"></i> View Repository
+              </a>
+              <a 
+                href={selectedProject.demoUrl} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="modal-btn modal-btn-secondary"
+              >
+                <i className="fas fa-external-link-alt"></i> Live Demo
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
