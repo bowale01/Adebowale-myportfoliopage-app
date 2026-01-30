@@ -220,6 +220,23 @@
   gap: 0.75rem;
 }
 
+.tech-category {
+  margin-bottom: 1.5rem;
+}
+
+.tech-category:last-child {
+  margin-bottom: 0;
+}
+
+.tech-category-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #666;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
 .modal-tech-tag {
   padding: 0.5rem 1rem;
   background-color: #eff6ff;

@@ -15,6 +15,10 @@ export default function MyProjects() {
     demoUrl: "https://adelekeadebowale.com",
     details: {
       overview: "Built a secure and scalable portfolio website infrastructure from scratch using AWS, Docker, Terraform, and GitHub Actions. Features HTTPS via Certbot, automated deployments, and resilient architecture in a custom VPC with complete infrastructure as code implementation.",
+      techStack: {
+        infrastructure: ["AWS EC2", "VPC", "Security Groups", "Route 53", "Certbot", "Let's Encrypt"],
+        development: ["Terraform", "Docker", "GitHub Actions", "NGINX", "React", "Bash", "AWS CLI"]
+      },
       highlights: [
         "Terraform-based infrastructure as code (IaC) for AWS resource provisioning",
         "CI/CD pipeline with GitHub Actions and Docker Hub integration",
@@ -129,11 +133,34 @@ export default function MyProjects() {
               <h3 className="modal-section-title">
                 <i className="fas fa-layer-group"></i> Tech Stack
               </h3>
-              <div className="modal-tech-tags">
-                {selectedProject.tech.map((tech, index) => (
-                  <span className="modal-tech-tag" key={index}>{tech}</span>
-                ))}
-              </div>
+              
+              {selectedProject.details.techStack ? (
+                <>
+                  <div className="tech-category">
+                    <h4 className="tech-category-title">Infrastructure</h4>
+                    <div className="modal-tech-tags">
+                      {selectedProject.details.techStack.infrastructure.map((tech, index) => (
+                        <span className="modal-tech-tag" key={index}>{tech}</span>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  <div className="tech-category">
+                    <h4 className="tech-category-title">Development</h4>
+                    <div className="modal-tech-tags">
+                      {selectedProject.details.techStack.development.map((tech, index) => (
+                        <span className="modal-tech-tag" key={index}>{tech}</span>
+                      ))}
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <div className="modal-tech-tags">
+                  {selectedProject.tech.map((tech, index) => (
+                    <span className="modal-tech-tag" key={index}>{tech}</span>
+                  ))}
+                </div>
+              )}
             </div>
 
             <div className="modal-section">
