@@ -66,7 +66,11 @@ export default function AboutMe() {
 
               <div className="credential-item">
                 <div className="credential-icon">
-                  <i className="fas fa-users"></i>
+                  <img 
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" 
+                    alt="AWS" 
+                    style={{width: '40px', height: '40px'}}
+                  />
                 </div>
                 <div className="credential-content">
                   <h3 className="credential-title">AWS Community Recognition</h3>
