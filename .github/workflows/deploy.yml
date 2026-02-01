@@ -38,7 +38,9 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             docker pull debolek/portfolio:latest
-            docker rm -f portfolio || true
-            docker container prune -f
-            sleep 2
+            docker stop portfolio 2>/dev/null || true
+            docker rm -f portfolio 2>/dev/null || true
+            docker ps -a | grep portfolio | awk '{print $1}' | xargs -r docker rm -f
+            sudo lsof -ti:3000 | xargs -r sudo kill -9 || true
+            sleep 3
             docker run -d --name portfolio --restart unless-stopped -p 3000:80 debolek/portfolio:latest
