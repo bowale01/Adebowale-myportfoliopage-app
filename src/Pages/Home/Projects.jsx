@@ -18,7 +18,12 @@ export default function MyProjects() {
     "NGINX": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nginx/nginx-original.svg",
     "React": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
     "Bash": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg",
-    "AWS CLI": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg"
+    "AWS CLI": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+    "AWS ECR": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+    "SSH": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ssh/ssh-original.svg",
+    "YAML": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/yaml/yaml-original.svg",
+    "JavaScript": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg",
+    "Git Workflow": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg"
   };
 
   const projects = [
@@ -49,12 +54,28 @@ export default function MyProjects() {
   },
   {
     id: 2,
-    title: "Multi-Environment CI/CD Pipeline",
+    title: "Multi-Platform CI/CD Pipeline",
     description: "Enterprise-grade CI/CD system deploying Dockerized apps across dev, staging, and production environments with GitHub Actions.",
     image: "/img/projects/placeholder.svg",
-    tech: ["GitHub Actions", "Docker", "AWS ECR", "NGINX"],
-    repoUrl: "https://github.com/bowale01/cicd-pipeline",
-    demoUrl: "https://github.com/bowale01"
+    tech: ["GitHub Actions", "Docker", "AWS ECR", "NGINX", "Route 53", "Let's Encrypt"],
+    repoUrl: "https://github.com/bowale01/Multi-Platform-CICD-Workflow",
+    demoUrl: "https://github.com/bowale01/Multi-Platform-CICD-Workflow",
+    details: {
+      overview: "Designed and deployed a full-scale, production-grade multi-environment CI/CD pipeline. Each GitHub branch (develop, staging, main) automatically triggers environment-specific Docker builds, pushes to ECR with matching tags, and deploys to dedicated containers with subdomain routing via NGINX and SSL management.",
+      techStack: {
+        infrastructure: ["Docker", "GitHub Actions", "AWS ECR", "AWS EC2", "NGINX", "Route 53", "Let's Encrypt"],
+        development: ["Bash", "YAML", "JavaScript", "React", "SSH", "Git Workflow"]
+      },
+      highlights: [
+        "Isolated development, staging, and production pipelines via branch-based GitHub Actions",
+        "Environment-specific Docker tags (:dev, :staging, :latest) with separate container instances",
+        "Subdomain routing (dev.*, staging.*, prod.*) with NGINX reverse proxy configuration",
+        "Individual SSL certificate provisioning for each environment using Certbot & Let's Encrypt",
+        "Route 53 DNS with wildcard support for flexible subdomain management",
+        "Secured SSH deployments using GitHub Secrets and automated container lifecycle management",
+        "Production-grade deployment patterns with zero-downtime container replacement"
+      ]
+    }
   },
   {
     id: 3,
