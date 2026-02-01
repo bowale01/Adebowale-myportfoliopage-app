@@ -61,7 +61,7 @@ export default function MyProjects() {
     repoUrl: "https://github.com/bowale01/Multi-Platform-CICD-Workflow",
     demoUrl: "https://github.com/bowale01/Multi-Platform-CICD-Workflow",
     details: {
-      overview: "Designed and deployed a full-scale, production-grade multi-environment CI/CD pipeline. Each GitHub branch (develop, staging, main) automatically triggers environment-specific Docker builds, pushes to ECR with matching tags, and deploys to dedicated containers with subdomain routing via NGINX and SSL management.",
+      overview: "Designed and deployed a full-scale, production-grade multi-platform CI/CD pipeline. Each GitHub branch (develop, staging, main) automatically triggers environment-specific Docker builds, pushes to ECR with matching tags, and deploys to dedicated containers with subdomain routing via NGINX and SSL management.",
       techStack: {
         infrastructure: ["Docker", "GitHub Actions", "AWS ECR", "AWS EC2", "NGINX", "Route 53", "Let's Encrypt"],
         development: ["Bash", "YAML", "JavaScript", "React", "SSH", "Git Workflow"]
