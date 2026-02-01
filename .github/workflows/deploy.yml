@@ -38,9 +38,17 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             docker pull debolek/portfolio:latest
+            
+            # Stop any containers using port 3000 (including old app-prod from Multi-Platform project)
+            docker stop app-prod 2>/dev/null || true
+            docker rm -f app-prod 2>/dev/null || true
             docker stop portfolio 2>/dev/null || true
             docker rm -f portfolio 2>/dev/null || true
             docker ps -a | grep portfolio | awk '{print $1}' | xargs -r docker rm -f
+            
+            # Kill any processes on port 3000
             sudo lsof -ti:3000 | xargs -r sudo kill -9 || true
             sleep 3
+            
+            # Start portfolio container
             docker run -d --name portfolio --restart unless-stopped -p 3000:80 debolek/portfolio:latest
