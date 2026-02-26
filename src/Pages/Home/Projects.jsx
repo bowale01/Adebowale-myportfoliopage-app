@@ -62,7 +62,7 @@ export default function MyProjects() {
     id: 2,
     title: "Multi-Platform CI/CD Pipeline",
     description: "Enterprise-grade CI/CD system deploying Dockerized apps across dev, staging, and production environments with GitHub Actions.",
-    image: "/img/projects/placeholder.svg",
+    image: "https://github.githubassets.com/images/modules/site/features/actions-icon-actions.svg",
     tech: ["GitHub Actions", "Docker", "AWS ECR", "NGINX", "Route 53", "Let's Encrypt"],
     repoUrl: "https://github.com/bowale01/Multi-Platform-CICD-Workflow",
     demoUrl: "https://github.com/bowale01/Multi-Platform-CICD-Workflow",
@@ -141,7 +141,7 @@ export default function MyProjects() {
           {projects.map((project) => (
             <div key={project.id} className="project-card">
               <div 
-                className={`project-image${project.id === 4 ? " project-image-nba" : ""}`}
+                className={`project-image${project.id === 4 ? " project-image-nba" : ""}${project.id === 2 ? " project-image-cicd" : ""}`}
                 style={{ backgroundImage: `url(${project.image})` }}
               >
                 {project.id === 1 && (
