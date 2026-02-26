@@ -84,6 +84,13 @@
   position: relative;
 }
 
+.project-image-nba {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #0b1b2b;
+}
+
 .project-status-badge {
   position: absolute;
   top: 1rem;

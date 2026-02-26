@@ -96,7 +96,7 @@ export default function MyProjects() {
     id: 4,
     title: "NBA GamePredict AI Agent",
     description: "Intelligent AI-powered NBA betting prediction system combining real ESPN H2H data with dual AI validation for professional-grade betting intelligence and capital protection.",
-    image: "https://github.com/user-attachments/assets/7298da32-7021-4696-a0be-e286905be045",
+    image: "https://upload.wikimedia.org/wikipedia/en/0/03/National_Basketball_Association_logo.svg",
     tech: ["Python", "FastAPI", "OpenAI", "Amazon Bedrock", "Agentic AI", "ESPN API", "AWS"],
     repoUrl: "https://github.com/bowale01/nba-gamepredict-ai-agent",
     demoUrl: "https://github.com/bowale01/nba-gamepredict-ai-agent",
@@ -141,7 +141,7 @@ export default function MyProjects() {
           {projects.map((project) => (
             <div key={project.id} className="project-card">
               <div 
-                className="project-image"
+                className={`project-image${project.id === 4 ? " project-image-nba" : ""}`}
                 style={{ backgroundImage: `url(${project.image})` }}
               >
                 {project.id === 1 && (
