@@ -23,7 +23,13 @@ export default function MyProjects() {
     "SSH": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ssh/ssh-original.svg",
     "YAML": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/yaml/yaml-original.svg",
     "JavaScript": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg",
-    "Git Workflow": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg"
+    "Git Workflow": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg",
+    "Python": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
+    "FastAPI": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg",
+    "OpenAI": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23412991'/%3E%3Ctext x='50' y='60' text-anchor='middle' font-size='50' font-weight='bold' fill='white'%3EAI%3C/text%3E%3C/svg%3E",
+    "Amazon Bedrock": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+    "ESPN API": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23ff6600'/%3E%3Ctext x='50' y='60' text-anchor='middle' font-size='40' font-weight='bold' fill='white'%3EAPI%3C/text%3E%3C/svg%3E",
+    "Agentic AI": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%234a90e2'/%3E%3Ctext x='50' y='60' text-anchor='middle' font-size='40' font-weight='bold' fill='white'%3E🤖%3C/text%3E%3C/svg%3E"
   };
 
   const projects = [
@@ -85,6 +91,32 @@ export default function MyProjects() {
     tech: ["Prometheus", "Grafana", "Docker", "Node Exporter"],
     repoUrl: "https://github.com/bowale01/monitoring",
     demoUrl: "https://adelekeadebowale.com"
+  },
+  {
+    id: 4,
+    title: "NBA GamePredict AI Agent",
+    description: "Intelligent AI-powered NBA betting prediction system combining real ESPN H2H data with dual AI validation for professional-grade betting intelligence and capital protection.",
+    image: "https://github.com/user-attachments/assets/7298da32-7021-4696-a0be-e286905be045",
+    tech: ["Python", "FastAPI", "OpenAI", "Amazon Bedrock", "Agentic AI", "ESPN API", "AWS"],
+    repoUrl: "https://github.com/bowale01/nba-gamepredict-ai-agent",
+    demoUrl: "https://github.com/bowale01/nba-gamepredict-ai-agent",
+    details: {
+      overview: "Built a hybrid AI-powered NBA betting prediction system that combines real ESPN H2H game data with dual AI validation layers for high-confidence predictions. The system uses an agentic AI approach with autonomous decision-making, integrating GPT-4o and Amazon Bedrock Claude for comprehensive data validation and capital protection. Only recommends bets with 75%+ confidence threshold.",
+      techStack: {
+        infrastructure: ["AWS", "Amazon Bedrock", "FastAPI", "Docker"],
+        development: ["Python", "OpenAI", "Agentic AI", "ESPN API", "pandas", "numpy"]
+      },
+      highlights: [
+        "Hybrid architecture combining real ESPN API H2H data with zero fallback/simulated data",
+        "Dual AI validation layers: GPT-4o for historical context + Bedrock Claude for data quality checking",
+        "Agentic AI agent with autonomous decision-making and reasoning capabilities",
+        "Capital protection through rigorous 75% confidence threshold enforcement",
+        "Multi-market support: Moneyline, Over/Under, Player Props, Halftime predictions",
+        "Real-time H2H analysis, injury detection, and current form analysis",
+        "FastAPI REST service with Swagger documentation for easy integration",
+        "AWS serverless deployment with SAM templates and cost optimization (~$0.07/month)"
+      ]
+    }
   }
 ];
 
