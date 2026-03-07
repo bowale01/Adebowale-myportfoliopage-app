@@ -29,7 +29,7 @@ export default function HeroSection() {
             </Link>
             <button 
               onClick={() => {
-                window.open("/Adeleke_Adebowale_Julius_Resume_.pdf", '_blank', 'noopener noreferrer')
+                window.open("/img/Adeleke_Adebowale_Julius_Resume_2026.pdf", '_blank', 'noopener noreferrer')
               }}
               className="btn btn-outline-primary"
             >
