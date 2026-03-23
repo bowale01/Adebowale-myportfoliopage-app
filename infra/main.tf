@@ -1,3 +1,25 @@
+terraform {
+  required_version = ">= 1.3.0"
+
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+
+  # Remote state stored in S3 with DynamoDB locking
+  # Step 1: Create the bucket and table manually first (see below)
+  # Step 2: Run terraform init — it will migrate local state to S3 automatically
+  backend "s3" {
+    bucket         = "debolek-portfolio-terraform-state"
+    key            = "portfolio/terraform.tfstate"
+    region         = "us-east-1"
+    encrypt        = true
+    dynamodb_table = "debolek-portfolio-terraform-lock"
+  }
+}
+
 provider "aws" {
   region = "us-east-1"
 }
