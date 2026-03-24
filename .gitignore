@@ -40,3 +40,4 @@ infra/terraform.tfvars
 dns-records.json
 setup-ssl.sh
 *-ssl.sh
+infra/update-dns.json
