@@ -1,9 +1,7 @@
 name: Deploy to Production
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch: # disabled auto-trigger — deploy.yml handles main branch deploys
 
 jobs:
   deploy:
@@ -38,6 +36,5 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             docker pull debolek/portfolio:latest
-            docker stop portfolio || true
-            docker rm portfolio || true
+            docker rm -f portfolio 2>/dev/null || true
             docker run -d --name portfolio --restart unless-stopped -p 3000:80 debolek/portfolio:latest
