@@ -79,11 +79,11 @@ resource "aws_security_group" "web_sg" {
   vpc_id      = aws_vpc.main.id
 
   ingress {
-    description = "Allow SSH from admin IP only"
+    description = "Allow SSH"
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["109.235.157.40/32"]
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   ingress {
