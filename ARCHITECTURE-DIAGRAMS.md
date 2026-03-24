@@ -42,8 +42,8 @@
                        ┌──────────────────────────────────────┐
                        │      AWS ROUTE 53 (DNS)              │
                        │                                      │
-                       │  adelekeadebowale.com → 184.72.153.228│
-                       │  www.adelekeadebowale.com → 184.72... │
+                       │  adelekeadebowale.com → [EC2 Public IP]  │
+                       │  www.adelekeadebowale.com → [EC2 Public IP]│
                        └──────────────────────────────────────┘
                                               │
                                               ▼
@@ -70,9 +70,9 @@
 │  │  │                                                           │    │    │
 │  │  │  ┌─────────────────────────────────────────────────┐    │    │    │
 │  │  │  │  EC2 Instance (t2.micro)                        │    │    │    │
-│  │  │  │  - Instance ID: i-0d3ae9925f9d0fd1b            │    │    │    │
-│  │  │  │  - Public IP: 184.72.153.228                   │    │    │    │
-│  │  │  │  - Private IP: 10.0.1.13                       │    │    │    │
+│  │  │  │  - Instance ID: [see AWS Console]               │    │    │    │
+│  │  │  │  - Public IP: [managed via Route 53]           │    │    │    │
+│  │  │  │  - Private IP: [internal VPC address]          │    │    │    │
 │  │  │  │  - AMI: Ubuntu 22.04                           │    │    │    │
 │  │  │  │                                                 │    │    │    │
 │  │  │  │  Services Running:                              │    │    │    │
@@ -106,8 +106,8 @@
 │  │  │  └─────────────────────────────────────────────────┘    │    │    │
 │  │  └──────────────────────────────────────────────────────────┘    │    │
 │  │                                                                    │    │
-│  │  Internet Gateway: igw-028e90021954d1c7c                         │    │
-│  │  Route Table: rtb-012436612c825579f                              │    │
+│  │  Internet Gateway: [managed by Terraform]                        │    │
+│  │  Route Table: [managed by Terraform]                             │    │
 │  │  - Route: 0.0.0.0/0 → Internet Gateway                           │    │
 │  └──────────────────────────────────────────────────────────────────┘    │
 │                                                                            │
@@ -130,7 +130,7 @@
 │   (DNS Resolution)   │
 └──────┬───────────────┘
        │
-       │ 2. Returns: 184.72.153.228
+       │ 2. Returns: [EC2 Public IP]
        │
        ▼
 ┌────────────────────────────────┐

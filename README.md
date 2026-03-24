@@ -13,6 +13,88 @@
 
 A modern, cloud-native portfolio website showcasing DevOps and cloud engineering projects. Built with React and deployed on AWS using containerization, infrastructure as code, and automated CI/CD pipelines.
 
+## 🏛️ Architecture Diagram
+
+```mermaid
+flowchart TD
+    User(["🌐 User\nadelekeadebowale.com"])
+    Google(["🔍 Google Search Console\nSite Verification"])
+
+    subgraph GitHub ["GitHub (Public Repo)"]
+        Code["📦 Source Code\n(React App)"]
+        subgraph Actions ["GitHub Actions CI/CD"]
+            Deploy["deploy.yml\n(push to main)"]
+            DeployDev["deploy-dev.yml\n(push to develop)"]
+            DeployStaging["deploy-staging.yml\n(push to staging)"]
+            TerraformWF["terraform.yml\n(manual trigger)"]
+        end
+    end
+
+    subgraph DockerHub ["Docker Hub"]
+        ImgLatest["debolek/portfolio:latest"]
+        ImgDev["debolek/portfolio:dev"]
+        ImgStaging["debolek/portfolio:staging"]
+    end
+
+    subgraph AWS ["AWS (us-east-1)"]
+        subgraph VPC ["VPC — 10.0.0.0/16"]
+            subgraph Subnet ["Public Subnet — 10.0.1.0/24"]
+                SG["🔒 Security Group\nPort 80, 443, 22, 3000-3002"]
+                subgraph EC2 ["EC2 t2.micro (Ubuntu 22.04)"]
+                    NGINX["NGINX Reverse Proxy\n(SSL Termination)"]
+                    Prod["🟢 portfolio\nDocker :3000"]
+                    Dev["🔵 portfolio-dev\nDocker :3001"]
+                    Staging["🟡 portfolio-staging\nDocker :3002"]
+                    SSL["Let's Encrypt\nSSL Certificates"]
+                end
+            end
+            IGW["🌐 Internet Gateway"]
+            RT["Route Table"]
+        end
+
+        subgraph TerraformState ["Terraform Remote State"]
+            S3["S3 Bucket\ndebolek-portfolio-terraform-state\n(encrypted + versioned)"]
+            DDB["DynamoDB Table\ndebolek-portfolio-terraform-lock\n(state locking)"]
+        end
+
+        subgraph IAM ["IAM — OIDC (No Static Keys)"]
+            OIDC["GitHub OIDC Provider\ntoken.actions.githubusercontent.com"]
+            Role["IAM Role\ndebolek-portfolio-github-actions-role\n(scoped to repo only)"]
+        end
+
+        Route53["Route 53\nDNS — adelekeadebowale.com"]
+    end
+
+    User -->|"HTTPS"| Route53
+    Google -->|"Verification"| Route53
+    Route53 --> IGW
+    IGW --> RT --> SG
+    SG --> NGINX
+    NGINX -->|":3000"| Prod
+    NGINX -->|":3001"| Dev
+    NGINX -->|":3002"| Staging
+    SSL -.->|"secures"| NGINX
+
+    Code --> Deploy
+    Code --> DeployDev
+    Code --> DeployStaging
+    Code --> TerraformWF
+
+    Deploy -->|"build & push"| ImgLatest
+    DeployDev -->|"build & push"| ImgDev
+    DeployStaging -->|"build & push"| ImgStaging
+
+    ImgLatest -->|"SSH deploy"| Prod
+    ImgDev -->|"SSH deploy"| Dev
+    ImgStaging -->|"SSH deploy"| Staging
+
+    TerraformWF -->|"OIDC AssumeRole"| OIDC
+    OIDC --> Role
+    Role -->|"terraform apply"| VPC
+    Role -->|"read/write state"| S3
+    Role -->|"lock state"| DDB
+```
+
 ## 🌟 Features
 
 - **Modern React Frontend**: Single-page application built with React 18
@@ -40,10 +122,16 @@ A modern, cloud-native portfolio website showcasing DevOps and cloud engineering
 - **Let's Encrypt** - SSL certificate automation
 
 ### AWS Services
-- **EC2** - Compute instance hosting Docker containers
-- **VPC** - Isolated network infrastructure
-- **Security Groups** - Firewall rules and access control
-- **Route 53** - DNS management (optional)
+- **EC2** - t2.micro Ubuntu instance hosting Docker containers
+- **VPC** - Isolated network with public subnet (10.0.0.0/16)
+- **Internet Gateway** - Public internet access for the VPC
+- **Route Table** - Routes traffic from subnet to internet gateway
+- **Security Groups** - Firewall rules (HTTP 80, HTTPS 443, SSH 22, ports 3000-3002)
+- **S3** - Remote Terraform state storage (encrypted + versioned)
+- **DynamoDB** - Terraform state locking table
+- **IAM OIDC** - Keyless GitHub Actions authentication (no static AWS keys)
+- **IAM Role** - Scoped permissions for GitHub Actions via OIDC
+- **Route 53** - DNS management for adelekeadebowale.com
 
 ## 🚀 Quick Start
 
