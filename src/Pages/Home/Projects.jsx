@@ -144,7 +144,7 @@ export default function MyProjects() {
                 className={`project-image${project.id === 4 ? " project-image-nba" : ""}${project.id === 2 ? " project-image-cicd" : ""}`}
                 style={{ backgroundImage: `url(${project.image})` }}
               >
-                {project.id === 1 && (
+                {(project.id === 1 || project.id === 2 || project.id === 4) && (
                   <div className="project-status-badge">Completed</div>
                 )}
               </div>
