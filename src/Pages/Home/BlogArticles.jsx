@@ -5,6 +5,16 @@ export default function BlogArticles() {
   const articles = [
     {
       id: 1,
+      category: "TERRAFORM / IaC",
+      categoryColor: "#f59e0b", // Amber
+      title: "Infrastructure as Code: A Practical Guide to Terraform on AWS",
+      description: "A deep dive into IaC with Terraform — covering VPCs, security groups, remote state, CI/CD pipelines, and real examples from a production AWS Active Directory deployment.",
+      image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=600&q=80",
+      alt: "Terraform IaC Guide",
+      link: "/blog/iac-terraform-guide"
+    },
+    {
+      id: 2,
       category: "DOCKER",
       categoryColor: "#2563eb", // Blue
       title: "Setting Up Multi-Container Applications with Docker Compose",
@@ -14,7 +24,7 @@ export default function BlogArticles() {
       link: "/blog/docker-compose-guide"
     },
     {
-      id: 2,
+      id: 3,
       category: "ARCHITECTURE",
       categoryColor: "#10b981", // Green
       title: "Building an API Gateway with Nginx for Microservices",
@@ -24,7 +34,7 @@ export default function BlogArticles() {
       link: "/blog/nginx-api-gateway"
     },
     {
-      id: 3,
+      id: 4,
       category: "CLOUD",
       categoryColor: "#8b5cf6", // Purple
       title: "Deploying Containerized Applications to AWS",

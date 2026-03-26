@@ -4,7 +4,7 @@ import Footer from "../Footer";
 import HeroSection from "../HeroSection";
 import MySkills from "../MySkills";
 import Projects from "../Projects";
-import ComingSoon from "../ComingSoon";
+import BlogArticles from "../BlogArticles";
 
 export default function Home() {
     return (
@@ -13,7 +13,7 @@ export default function Home() {
             <MySkills />
             <AboutMe />
             <Projects />
-            <ComingSoon />
+            <BlogArticles />
             <ContactMe/>
             <Footer />
         </>
