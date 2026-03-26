@@ -11,7 +11,7 @@ export default function BlogArticles() {
       description: "A deep dive into IaC with Terraform — covering VPCs, security groups, remote state, CI/CD pipelines, and real examples from a production AWS Active Directory deployment.",
       image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=600&q=80",
       alt: "Terraform IaC Guide",
-      link: "/blog/iac-terraform-guide"
+      link: "https://github.com/bowale01/iac-technical-blog"
     },
     {
       id: 2,
@@ -81,7 +81,7 @@ export default function BlogArticles() {
                 </span>
                 <h3 className="article-title">{article.title}</h3>
                 <p className="article-description">{article.description}</p>
-                <a href={article.link} className="read-more-link">
+                <a href={article.link} className="read-more-link" target={article.link.startsWith("http") ? "_blank" : "_self"} rel="noreferrer">
                   Read More <i className="fas fa-arrow-right"></i>
                 </a>
               </div>
