@@ -293,6 +293,124 @@ jobs:
             <code>apply</code> only runs on merge to main, with a human approval gate.
           </p>
 
+          <h2>Terragrunt: Terraform at Scale</h2>
+          <p>
+            Terraform is powerful, but as your infrastructure grows across multiple environments and AWS accounts,
+            you start hitting repetition problems. Every environment needs the same backend config, the same provider
+            block, the same module calls — just with different variable values. That's where Terragrunt comes in.
+          </p>
+          <p>
+            Terragrunt is a thin wrapper around Terraform that adds DRY (Don't Repeat Yourself) patterns, making it
+            practical to manage large multi-environment, multi-account infrastructure.
+          </p>
+
+          <h3>The Problem Terragrunt Solves</h3>
+          <p>Without Terragrunt, a typical multi-environment setup means copying the same files everywhere:</p>
+          <pre><code>{`environments/
+├── dev/
+│   ├── main.tf        # Duplicate
+│   ├── backend.tf     # Duplicate (different bucket key)
+│   └── terraform.tfvars
+├── staging/
+│   ├── main.tf        # Duplicate
+│   ├── backend.tf     # Duplicate
+│   └── terraform.tfvars
+└── prod/
+    ├── main.tf        # Duplicate
+    ├── backend.tf     # Duplicate
+    └── terraform.tfvars`}</code></pre>
+          <p>One missed update and dev drifts from prod. Terragrunt fixes this.</p>
+
+          <h3>Terragrunt Project Structure</h3>
+          <pre><code>{`infrastructure/
+├── terragrunt.hcl             # Root config — shared backend, provider
+├── modules/
+│   └── vpc/                   # Reusable Terraform module
+│       ├── main.tf
+│       ├── variables.tf
+│       └── outputs.tf
+└── environments/
+    ├── dev/vpc/terragrunt.hcl
+    ├── staging/vpc/terragrunt.hcl
+    └── prod/vpc/terragrunt.hcl`}</code></pre>
+
+          <h3>Root terragrunt.hcl</h3>
+          <p>Define the remote state backend once — all environments inherit it:</p>
+          <pre><code>{`remote_state {
+  backend = "s3"
+  generate = {
+    path      = "backend.tf"
+    if_exists = "overwrite_terragrunt"
+  }
+  config = {
+    bucket         = "my-terraform-state"
+    key            = "\${path_relative_to_include()}/terraform.tfstate"
+    region         = "us-east-1"
+    encrypt        = true
+    dynamodb_table = "terraform-state-lock"
+  }
+}
+
+generate "provider" {
+  path      = "provider.tf"
+  if_exists = "overwrite_terragrunt"
+  contents  = <<EOF
+provider "aws" {
+  region = var.aws_region
+}
+EOF
+}`}</code></pre>
+          <p>
+            <code>path_relative_to_include()</code> automatically sets the S3 key to the environment path — dev state
+            goes to <code>environments/dev/vpc/terraform.tfstate</code>, prod to <code>environments/prod/vpc/terraform.tfstate</code>.
+            No manual configuration per environment.
+          </p>
+
+          <h3>Environment terragrunt.hcl</h3>
+          <p>Each environment just points to the module and sets its own values:</p>
+          <pre><code>{`# environments/prod/vpc/terragrunt.hcl
+
+include "root" {
+  path = find_in_parent_folders()  # Picks up the root terragrunt.hcl
+}
+
+terraform {
+  source = "../../../modules/vpc"
+}
+
+inputs = {
+  aws_region   = "us-east-1"
+  vpc_cidr     = "10.0.0.0/16"
+  environment  = "prod"
+  cluster_name = "prod-eks"
+}`}</code></pre>
+          <p>No backend config, no provider block — all inherited from root. The module is defined once and reused everywhere.</p>
+
+          <h3>Running Terragrunt</h3>
+          <pre><code>{`terragrunt plan              # Plan a single environment
+terragrunt apply             # Apply a single environment
+
+terragrunt run-all plan      # Plan ALL environments at once
+terragrunt run-all apply     # Apply ALL environments in dependency order`}</code></pre>
+          <p><code>run-all</code> detects dependencies between modules and applies them in the correct order automatically.</p>
+
+          <h3>Terragrunt vs Terraform Workspaces</h3>
+          <div className="blog-table-wrapper">
+            <table className="blog-table">
+              <thead>
+                <tr><th>Feature</th><th>Workspaces</th><th>Terragrunt</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>State isolation</td><td>Shared backend, different keys</td><td>Fully separate backends</td></tr>
+                <tr><td>Code reuse</td><td>Same code, different vars</td><td>Modules + DRY config</td></tr>
+                <tr><td>Multi-account</td><td>Awkward</td><td>First-class support</td></tr>
+                <tr><td>Dependency management</td><td>Manual</td><td>Automatic with run-all</td></tr>
+                <tr><td>Blast radius</td><td>High</td><td>Low (isolated per env)</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Workspaces work fine for simple projects. Once you're managing multiple AWS accounts or more than two environments, Terragrunt is the better choice.</p>
+
           <h2>Common Pitfalls</h2>
           <ul>
             <li><strong>State file conflicts.</strong> Set up remote state with DynamoDB locking from day one.</li>
@@ -316,6 +434,7 @@ jobs:
           <div className="blog-post-resources">
             <h2>Resources</h2>
             <ul>
+              <li><a href="https://terragrunt.gruntwork.io/docs/" target="_blank" rel="noreferrer">Terragrunt Documentation</a></li>
               <li><a href="https://developer.hashicorp.com/terraform/docs" target="_blank" rel="noreferrer">Terraform Documentation</a></li>
               <li><a href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs" target="_blank" rel="noreferrer">AWS Provider Registry</a></li>
               <li><a href="https://github.com/aquasecurity/tfsec" target="_blank" rel="noreferrer">tfsec — Terraform Security Scanner</a></li>
