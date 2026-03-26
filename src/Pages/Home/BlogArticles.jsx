@@ -13,36 +13,7 @@ export default function BlogArticles() {
       alt: "Terraform IaC Guide",
       link: "https://github.com/bowale01/iac-technical-blog"
     },
-    {
-      id: 2,
-      category: "DOCKER",
-      categoryColor: "#2563eb", // Blue
-      title: "Setting Up Multi-Container Applications with Docker Compose",
-      description: "A step-by-step guide to orchestrating multiple containers for local development and production.",
-      image: "./img/blog/docker-compose.jpg",
-      alt: "Docker Compose Blog",
-      link: "/blog/docker-compose-guide"
-    },
-    {
-      id: 3,
-      category: "ARCHITECTURE",
-      categoryColor: "#10b981", // Green
-      title: "Building an API Gateway with Nginx for Microservices",
-      description: "Learn how to configure Nginx as a reverse proxy to create a unified entry point for your microservices.",
-      image: "./img/blog/nginx-gateway.jpg",
-      alt: "Nginx Gateway Blog",
-      link: "/blog/nginx-api-gateway"
-    },
-    {
-      id: 4,
-      category: "CLOUD",
-      categoryColor: "#8b5cf6", // Purple
-      title: "Deploying Containerized Applications to AWS",
-      description: "A comprehensive guide to deploying Docker containers to AWS using EC2, ECS, and load balancing.",
-      image: "./img/blog/aws-deployment.jpg",
-      alt: "AWS Deployment Blog",
-      link: "/blog/aws-container-deployment"
-    }
+
   ];
 
   return (
