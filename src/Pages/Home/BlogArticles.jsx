@@ -6,14 +6,23 @@ export default function BlogArticles() {
     {
       id: 1,
       category: "TERRAFORM / IaC",
-      categoryColor: "#f59e0b", // Amber
+      categoryColor: "#f59e0b",
       title: "Infrastructure as Code: A Practical Guide to Terraform on AWS",
       description: "A deep dive into IaC with Terraform — covering VPCs, security groups, remote state, CI/CD pipelines, and real examples from a production AWS Active Directory deployment.",
       image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=600&q=80",
       alt: "Terraform IaC Guide",
       link: "https://github.com/bowale01/iac-technical-blog"
     },
-
+    {
+      id: 2,
+      category: "DEVOPS / NETWORKING",
+      categoryColor: "#10b981",
+      title: "The Reverse Proxy Shift: Why Engineers Are Moving from NGINX to Traefik and Caddy",
+      description: "NGINX ruled for a decade — but Traefik and Caddy are taking over. A practical breakdown of why the shift is happening and which one belongs in your stack.",
+      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80",
+      alt: "NGINX to Traefik and Caddy",
+      link: "https://github.com/bowale01/nginx-to-traefik-caddy-blog"
+    },
   ];
 
   return (
