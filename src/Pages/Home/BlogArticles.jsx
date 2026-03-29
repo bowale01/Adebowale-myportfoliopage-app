@@ -23,6 +23,16 @@ export default function BlogArticles() {
       alt: "NGINX to Traefik and Caddy",
       link: "https://github.com/bowale01/nginx-to-traefik-caddy-blog"
     },
+    {
+      id: 3,
+      category: "KUBERNETES",
+      categoryColor: "#ef4444",
+      title: "ingress-nginx is Retired: What It Means and Where to Go Next",
+      description: "The ingress-nginx controller reached EOL in March 2026. No more security patches, no bug fixes. Here is what happened, why it matters, and how to migrate to Traefik, Cilium, or the Kubernetes Gateway API.",
+      image: "https://images.unsplash.com/photo-1667372393086-9d4001d51cf1?w=600&q=80",
+      alt: "ingress-nginx EOL migration guide",
+      link: "https://github.com/bowale01/ingress-nginx-eol-blog"
+    },
   ];
 
   return (
