@@ -14,16 +14,16 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+        uses: docker/setup-buildx-action@v2
 
       - name: Login to DockerHub
-        uses: docker/login-action@v3
+        uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build and Push Docker Image
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v4
         with:
           context: .
           push: true
@@ -31,13 +31,24 @@ jobs:
           platforms: linux/amd64
 
       - name: Deploy to EC2
-        uses: appleboy/ssh-action@v1
+        uses: appleboy/ssh-action@v0.1.7
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ubuntu
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             docker pull debolek/portfolio:latest
+            
+            # Stop any containers using port 3000 (including old app-prod from Multi-Platform project)
+            docker stop app-prod 2>/dev/null || true
+            docker rm -f app-prod 2>/dev/null || true
+            docker stop portfolio 2>/dev/null || true
             docker rm -f portfolio 2>/dev/null || true
-            sleep 2
+            docker ps -a | grep portfolio | awk '{print $1}' | xargs -r docker rm -f
+            
+            # Kill any processes on port 3000
+            sudo lsof -ti:3000 | xargs -r sudo kill -9 || true
+            sleep 3
+            
+            # Start portfolio container
             docker run -d --name portfolio --restart unless-stopped -p 3000:80 debolek/portfolio:latest

@@ -23,13 +23,7 @@ export default function MyProjects() {
     "SSH": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ssh/ssh-original.svg",
     "YAML": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/yaml/yaml-original.svg",
     "JavaScript": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg",
-    "Git Workflow": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg",
-    "Python": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
-    "FastAPI": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg",
-    "OpenAI": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23412991'/%3E%3Ctext x='50' y='60' text-anchor='middle' font-size='50' font-weight='bold' fill='white'%3EAI%3C/text%3E%3C/svg%3E",
-    "Amazon Bedrock": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
-    "ESPN API": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23ff6600'/%3E%3Ctext x='50' y='60' text-anchor='middle' font-size='40' font-weight='bold' fill='white'%3EAPI%3C/text%3E%3C/svg%3E",
-    "Agentic AI": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%234a90e2'/%3E%3Ctext x='50' y='60' text-anchor='middle' font-size='40' font-weight='bold' fill='white'%3E🤖%3C/text%3E%3C/svg%3E"
+    "Git Workflow": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg"
   };
 
   const projects = [
@@ -62,7 +56,7 @@ export default function MyProjects() {
     id: 2,
     title: "Multi-Platform CI/CD Pipeline",
     description: "Enterprise-grade CI/CD system deploying Dockerized apps across dev, staging, and production environments with GitHub Actions.",
-    image: "https://github.githubassets.com/images/modules/site/features/actions-icon-actions.svg",
+    image: "/img/projects/placeholder.svg",
     tech: ["GitHub Actions", "Docker", "AWS ECR", "NGINX", "Route 53", "Let's Encrypt"],
     repoUrl: "https://github.com/bowale01/Multi-Platform-CICD-Workflow",
     demoUrl: "https://github.com/bowale01/Multi-Platform-CICD-Workflow",
@@ -94,27 +88,27 @@ export default function MyProjects() {
   },
   {
     id: 4,
-    title: "NBA GamePredict AI Agent",
-    description: "Intelligent AI-powered NBA betting prediction system combining real ESPN H2H data with dual AI validation for professional-grade betting intelligence and capital protection.",
-    image: "https://upload.wikimedia.org/wikipedia/en/0/03/National_Basketball_Association_logo.svg",
-    tech: ["Python", "FastAPI", "OpenAI", "Amazon Bedrock", "Agentic AI", "ESPN API", "AWS"],
-    repoUrl: "https://github.com/bowale01/nba-gamepredict-ai-agent",
-    demoUrl: "https://github.com/bowale01/nba-gamepredict-ai-agent",
+    title: "AWS Infrastructure Deployment with Terraform — Auto Scaling, ALB, VPC, RDS",
+    description: "Production-grade AWS infrastructure provisioned entirely with Terraform, featuring Auto Scaling Groups, Application Load Balancer, custom VPC networking, RDS database, and S3 remote state with DynamoDB locking.",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80",
+    tech: ["Terraform", "AWS", "Docker", "VPC", "Bash"],
+    repoUrl: "https://github.com/bowale01/cloudops-task",
+    demoUrl: "https://github.com/bowale01/cloudops-task",
     details: {
-      overview: "Built a hybrid AI-powered NBA betting prediction system that combines real ESPN H2H game data with dual AI validation layers for high-confidence predictions. The system uses an agentic AI approach with autonomous decision-making, integrating GPT-4o and Amazon Bedrock Claude for comprehensive data validation and capital protection. Only recommends bets with 75%+ confidence threshold.",
+      overview: "Designed and deployed a complete AWS infrastructure stack using Terraform, including a custom VPC with public and private subnets, an Application Load Balancer for traffic distribution, Auto Scaling Groups for high availability, RDS for managed database, IAM roles with least-privilege access, and hardened security groups. Infrastructure state is managed remotely with S3 and DynamoDB locking.",
       techStack: {
-        infrastructure: ["AWS", "Amazon Bedrock", "FastAPI", "Docker"],
-        development: ["Python", "OpenAI", "Agentic AI", "ESPN API", "pandas", "numpy"]
+        infrastructure: ["AWS", "VPC", "Security Groups", "Terraform"],
+        development: ["Docker", "Bash", "Terraform"]
       },
       highlights: [
-        "Hybrid architecture combining real ESPN API H2H data with zero fallback/simulated data",
-        "Dual AI validation layers: GPT-4o for historical context + Bedrock Claude for data quality checking",
-        "Agentic AI agent with autonomous decision-making and reasoning capabilities",
-        "Capital protection through rigorous 75% confidence threshold enforcement",
-        "Multi-market support: Moneyline, Over/Under, Player Props, Halftime predictions",
-        "Real-time H2H analysis, injury detection, and current form analysis",
-        "FastAPI REST service with Swagger documentation for easy integration",
-        "AWS serverless deployment with SAM templates and cost optimization (~$0.07/month)"
+        "Custom VPC with public and private subnets across multiple AZs",
+        "Application Load Balancer with health checks and target groups",
+        "Auto Scaling Group with launch templates for automatic scaling",
+        "RDS database instance in private subnet for data persistence",
+        "IAM roles and instance profiles with least-privilege access",
+        "Security groups with strict ingress/egress rules",
+        "S3 remote state backend with DynamoDB locking",
+        "Dockerized application with automated deployment"
       ]
     }
   }
@@ -141,10 +135,10 @@ export default function MyProjects() {
           {projects.map((project) => (
             <div key={project.id} className="project-card">
               <div 
-                className={`project-image${project.id === 4 ? " project-image-nba" : ""}${project.id === 2 ? " project-image-cicd" : ""}`}
+                className="project-image"
                 style={{ backgroundImage: `url(${project.image})` }}
               >
-                {(project.id === 1 || project.id === 2 || project.id === 4) && (
+                {(project.id === 1 || project.id === 4) && (
                   <div className="project-status-badge">Completed</div>
                 )}
               </div>
