@@ -167,7 +167,7 @@ export default function MyProjects() {
           {projects.map((project) => (
             <div key={project.id} className="project-card">
               <div 
-                className="project-image"
+                className={`project-image${project.id === 5 ? " project-image-nba" : ""}`}
                 style={{ backgroundImage: `url(${project.image})` }}
               >
                 {(project.id === 1 || project.id === 4 || project.id === 5) && (
