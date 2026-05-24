@@ -29,7 +29,15 @@ export default function MyProjects() {
     "OpenAI": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23412991'/%3E%3Ctext x='50' y='60' text-anchor='middle' font-size='50' font-weight='bold' fill='white'%3EAI%3C/text%3E%3C/svg%3E",
     "Amazon Bedrock": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
     "ESPN API": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23ff6600'/%3E%3Ctext x='50' y='60' text-anchor='middle' font-size='40' font-weight='bold' fill='white'%3EAPI%3C/text%3E%3C/svg%3E",
-    "Agentic AI": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%234a90e2'/%3E%3Ctext x='50' y='60' text-anchor='middle' font-size='40' font-weight='bold' fill='white'%3E🤖%3C/text%3E%3C/svg%3E"
+    "Agentic AI": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%234a90e2'/%3E%3Ctext x='50' y='60' text-anchor='middle' font-size='40' font-weight='bold' fill='white'%3E🤖%3C/text%3E%3C/svg%3E",
+    "AWS MediaLive": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+    "AWS Elemental Inference": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+    "AWS MediaPackage": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+    "AWS CloudFront": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+    "AWS MediaConvert": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+    "CloudFormation": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+    "OBS Studio": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23302E31'/%3E%3Ctext x='50' y='65' text-anchor='middle' font-size='35' font-weight='bold' fill='white'%3EOBS%3C/text%3E%3C/svg%3E",
+    "PowerShell": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/powershell/powershell-original.svg"
   };
 
   const projects = [
@@ -143,6 +151,32 @@ export default function MyProjects() {
         "AWS serverless deployment with SAM templates and cost optimization"
       ]
     }
+  },
+  {
+    id: 6,
+    title: "AWS Elemental Inference – AI-Powered Vertical Video (9:16) Workflow",
+    description: "Real-time 16:9 to 9:16 live stream conversion with AI smart cropping, powered by AWS Elemental Inference. Built for social media delivery (TikTok, Instagram Reels, YouTube Shorts) from a standard widescreen broadcast source.",
+    image: "https://raw.githubusercontent.com/bowale01/aws-ai-vertical-video-workflow/main/screenshots/03-smart-crop-preview.png",
+    tech: ["AWS MediaLive", "AWS Elemental Inference", "AWS MediaPackage", "AWS CloudFront", "CloudFormation", "OBS Studio", "PowerShell"],
+    repoUrl: "https://github.com/bowale01/aws-ai-vertical-video-workflow",
+    demoUrl: "https://github.com/bowale01/aws-ai-vertical-video-workflow",
+    details: {
+      overview: "Built a real-time AI-powered vertical video workflow that converts standard 16:9 widescreen broadcasts into 9:16 portrait format for social media platforms. Uses AWS Elemental Inference for intelligent smart cropping that dynamically tracks subjects (players, ball, action) instead of a static centre-crop. Deployed entirely via CloudFormation with 22 resources including MediaLive, MediaPackage v2, CloudFront CDN, S3 archiving, and multi-platform RTMP delivery to TikTok, YouTube Shorts, Instagram Reels, and Facebook Live simultaneously.",
+      techStack: {
+        infrastructure: ["AWS MediaLive", "AWS Elemental Inference", "AWS MediaPackage", "AWS CloudFront", "AWS MediaConvert", "CloudFormation", "AWS"],
+        development: ["PowerShell", "OBS Studio", "YAML"]
+      },
+      highlights: [
+        "AI-powered smart cropping via AWS Elemental Inference — dynamically follows action in real-time",
+        "Real-time 16:9 → 9:16 conversion at 1080x1920, H.264 High Profile @ 4.5-6 Mbps, 30fps",
+        "Multi-platform simultaneous delivery: TikTok LIVE, YouTube Shorts, Instagram Reels, Facebook LIVE via RTMP",
+        "HLS low-latency streaming via MediaPackage v2 with 2-second segments and CloudFront CDN",
+        "Highlight clip automation: EventBridge → Step Functions → MediaConvert for VOD asset generation",
+        "Full Infrastructure as Code: 22 AWS resources deployed via single CloudFormation template",
+        "Automated deployment script (deploy.ps1) handling credentials, CloudFront origin fix, and endpoint policy",
+        "Cost-optimized architecture: channel runs only during active streaming, stack remains deployed at minimal cost"
+      ]
+    }
   }
 ];
 
@@ -170,7 +204,7 @@ export default function MyProjects() {
                 className={`project-image${project.id === 5 ? " project-image-nba" : ""}`}
                 style={{ backgroundImage: `url(${project.image})` }}
               >
-                {(project.id === 1 || project.id === 4 || project.id === 5) && (
+                {(project.id === 1 || project.id === 4 || project.id === 5 || project.id === 6) && (
                   <div className="project-status-badge">Completed</div>
                 )}
               </div>
