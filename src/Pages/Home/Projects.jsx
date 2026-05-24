@@ -205,7 +205,12 @@ export default function MyProjects() {
                 style={{ backgroundImage: `url(${project.image})` }}
               >
                 {(project.id === 1 || project.id === 4 || project.id === 5 || project.id === 6) && (
-                  <div className="project-status-badge">Completed</div>
+                  <div className="project-status-badge">
+                    {project.id === 1 && "Completed Jan 2026"}
+                    {project.id === 4 && "Completed Apr 2026"}
+                    {project.id === 5 && "Completed Feb 2026"}
+                    {project.id === 6 && "Completed May 2026"}
+                  </div>
                 )}
               </div>
               <div className="project-content">
