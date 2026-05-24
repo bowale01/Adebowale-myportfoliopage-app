@@ -102,32 +102,6 @@ export default function MyProjects() {
   },
   {
     id: 4,
-    title: "AWS Infrastructure Deployment with Terraform — Auto Scaling, ALB, VPC, RDS",
-    description: "Production-grade AWS infrastructure provisioned entirely with Terraform, featuring Auto Scaling Groups, Application Load Balancer, custom VPC networking, RDS database, and S3 remote state with DynamoDB locking.",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80",
-    tech: ["Terraform", "AWS", "Docker", "VPC", "Bash"],
-    repoUrl: "https://github.com/bowale01/cloudops-task",
-    demoUrl: "https://github.com/bowale01/cloudops-task",
-    details: {
-      overview: "Designed and deployed a complete AWS infrastructure stack using Terraform, including a custom VPC with public and private subnets, an Application Load Balancer for traffic distribution, Auto Scaling Groups for high availability, RDS for managed database, IAM roles with least-privilege access, and hardened security groups. Infrastructure state is managed remotely with S3 and DynamoDB locking.",
-      techStack: {
-        infrastructure: ["AWS", "VPC", "Security Groups", "Terraform"],
-        development: ["Docker", "Bash", "Terraform"]
-      },
-      highlights: [
-        "Custom VPC with public and private subnets across multiple AZs",
-        "Application Load Balancer with health checks and target groups",
-        "Auto Scaling Group with launch templates for automatic scaling",
-        "RDS database instance in private subnet for data persistence",
-        "IAM roles and instance profiles with least-privilege access",
-        "Security groups with strict ingress/egress rules",
-        "S3 remote state backend with DynamoDB locking",
-        "Dockerized application with automated deployment"
-      ]
-    }
-  },
-  {
-    id: 5,
     title: "NBA GamePredict AI Agent",
     description: "Intelligent AI-powered NBA betting prediction system combining real ESPN H2H data with dual AI validation for professional-grade betting intelligence and capital protection.",
     image: "https://upload.wikimedia.org/wikipedia/en/0/03/National_Basketball_Association_logo.svg",
@@ -149,6 +123,32 @@ export default function MyProjects() {
         "Real-time H2H analysis, injury detection, and current form analysis",
         "FastAPI REST service with Swagger documentation for easy integration",
         "AWS serverless deployment with SAM templates and cost optimization"
+      ]
+    }
+  },
+  {
+    id: 5,
+    title: "AWS Infrastructure Deployment with Terraform — Auto Scaling, ALB, VPC, RDS",
+    description: "Production-grade AWS infrastructure provisioned entirely with Terraform, featuring Auto Scaling Groups, Application Load Balancer, custom VPC networking, RDS database, and S3 remote state with DynamoDB locking.",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80",
+    tech: ["Terraform", "AWS", "Docker", "VPC", "Bash"],
+    repoUrl: "https://github.com/bowale01/cloudops-task",
+    demoUrl: "https://github.com/bowale01/cloudops-task",
+    details: {
+      overview: "Designed and deployed a complete AWS infrastructure stack using Terraform, including a custom VPC with public and private subnets, an Application Load Balancer for traffic distribution, Auto Scaling Groups for high availability, RDS for managed database, IAM roles with least-privilege access, and hardened security groups. Infrastructure state is managed remotely with S3 and DynamoDB locking.",
+      techStack: {
+        infrastructure: ["AWS", "VPC", "Security Groups", "Terraform"],
+        development: ["Docker", "Bash", "Terraform"]
+      },
+      highlights: [
+        "Custom VPC with public and private subnets across multiple AZs",
+        "Application Load Balancer with health checks and target groups",
+        "Auto Scaling Group with launch templates for automatic scaling",
+        "RDS database instance in private subnet for data persistence",
+        "IAM roles and instance profiles with least-privilege access",
+        "Security groups with strict ingress/egress rules",
+        "S3 remote state backend with DynamoDB locking",
+        "Dockerized application with automated deployment"
       ]
     }
   },
@@ -201,14 +201,14 @@ export default function MyProjects() {
           {projects.map((project) => (
             <div key={project.id} className="project-card">
               <div 
-                className={`project-image${project.id === 5 ? " project-image-nba" : ""}`}
+                className={`project-image${project.id === 4 ? " project-image-nba" : ""}`}
                 style={{ backgroundImage: `url(${project.image})` }}
               >
                 {(project.id === 1 || project.id === 4 || project.id === 5 || project.id === 6) && (
                   <div className="project-status-badge">
                     {project.id === 1 && "Completed Jan 2026"}
-                    {project.id === 4 && "Completed Apr 2026"}
-                    {project.id === 5 && "Completed Feb 2026"}
+                    {project.id === 4 && "Completed Feb 2026"}
+                    {project.id === 5 && "Completed Apr 2026"}
                     {project.id === 6 && "Completed May 2026"}
                   </div>
                 )}
