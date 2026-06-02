@@ -52,7 +52,7 @@ export default function AboutMe() {
                 </div>
                 <div className="credential-content">
                   <h3 className="credential-title">Certifications</h3>
-                  <p className="credential-text">Cloud & DevOps Certified</p>
+                  <p className="credential-text">Cloud, DevOps & AI Certified</p>
                   <a 
                     href="https://www.linkedin.com/in/debolek/" 
                     target="_blank" 
@@ -146,6 +146,15 @@ export default function AboutMe() {
                 }}
                 src="./img/badges/Azure Certified Administrator Associate.png"
                 alt="Azure Certified Administrator Associate"
+                className="cert-badge-image"
+                style={{cursor: 'pointer'}}
+              />
+              <img
+                onClick={() => {
+                  window.open("./certifications/AWS Certified AI Practitioner.pdf", '_blank', 'noopener noreferrer')
+                }}
+                src="./img/badges/AWS Certified AI Practitioner.png"
+                alt="AWS Certified AI Practitioner"
                 className="cert-badge-image"
                 style={{cursor: 'pointer'}}
               />
