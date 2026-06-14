@@ -158,6 +158,15 @@ export default function AboutMe() {
                 className="cert-badge-image"
                 style={{cursor: 'pointer'}}
               />
+              <img
+                onClick={() => {
+                  window.open("./certifications/AWS Certified Security - Specialty.pdf", '_blank', 'noopener noreferrer')
+                }}
+                src="./img/badges/AWS Certified Security Speciality.png"
+                alt="AWS Certified Security - Specialty"
+                className="cert-badge-image"
+                style={{cursor: 'pointer'}}
+              />
             </div>
           </div>
         </div>
