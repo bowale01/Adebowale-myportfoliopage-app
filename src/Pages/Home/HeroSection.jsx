@@ -48,9 +48,6 @@ export default function HeroSection() {
             </a>
           </div>
         </div>
-        <div className="hero-image-container">
-          <img src="./img/hero_img.png" alt="Debolek" className="hero-image" />
-        </div>
       </div>
     </header>
   );
