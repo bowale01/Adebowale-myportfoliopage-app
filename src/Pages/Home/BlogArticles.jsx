@@ -33,6 +33,16 @@ export default function BlogArticles() {
       alt: "ingress-nginx EOL migration guide",
       link: "https://github.com/bowale01/ingress-nginx-eol-blog"
     },
+    {
+      id: 4,
+      category: "AI / DEVELOPER TOOLS",
+      categoryColor: "#8b5cf6",
+      title: "Stop Burning Tokens: A Developer's Guide to Efficient AI Prompting",
+      description: "A practical, tool-agnostic guide for developers using GitHub Copilot, Cursor, Claude, ChatGPT, Kiro, or any AI assistant. Learn how to write smarter prompts, reduce token waste, and get better results — covering specificity, context control, iterative steps, persistent instructions, and advanced techniques.",
+      image: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=80",
+      alt: "AI Prompting Guide for Developers",
+      link: "https://github.com/bowale01/A-Developer-s-Guide-to-Efficient-AI-Prompting"
+    },
   ];
 
   return (
