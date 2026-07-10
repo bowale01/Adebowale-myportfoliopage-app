@@ -37,7 +37,10 @@ export default function MyProjects() {
     "AWS MediaConvert": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
     "CloudFormation": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
     "OBS Studio": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23302E31'/%3E%3Ctext x='50' y='65' text-anchor='middle' font-size='35' font-weight='bold' fill='white'%3EOBS%3C/text%3E%3C/svg%3E",
-    "PowerShell": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/powershell/powershell-original.svg"
+    "Amazon Comprehend": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+    "Amazon SageMaker": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+    "DynamoDB": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+    "Amazon Translate": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg"
   };
 
   const projects = [
@@ -177,6 +180,32 @@ export default function MyProjects() {
         "Cost-optimized architecture: channel runs only during active streaming, stack remains deployed at minimal cost"
       ]
     }
+  },
+  {
+    id: 7,
+    title: "AI Customer Review Intelligence Platform",
+    description: "AI-powered platform that automatically analyzes customer reviews at scale — extracting sentiment, discovering topics, detecting fraud, generating summaries, and autonomously responding to feedback using AWS managed AI services.",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80",
+    tech: ["Go", "Python", "React", "Amazon Comprehend", "Amazon Bedrock", "Amazon SageMaker", "DynamoDB", "Terraform"],
+    repoUrl: "https://github.com/bowale01/ai-customer-review-intelligence-platform",
+    demoUrl: "https://github.com/bowale01/ai-customer-review-intelligence-platform",
+    details: {
+      overview: "Built a full-stack AI platform that ingests customer product reviews from any source and delivers instant, actionable intelligence. The system uses multiple AWS AI/ML services in parallel — Amazon Comprehend for sentiment and NLP, Bedrock Claude for generative summaries and autonomous responses, SageMaker for custom ML models (fraud detection, topic clustering, trend forecasting), and Translate for multilingual support. Deployed entirely with Terraform and destroyed after testing to avoid ongoing charges.",
+      techStack: {
+        infrastructure: ["AWS", "Amazon Comprehend", "Amazon Bedrock", "Amazon SageMaker", "DynamoDB", "Amazon Translate", "Terraform", "CloudFormation"],
+        development: ["Go", "Python", "React", "JavaScript"]
+      },
+      highlights: [
+        "Sentiment analysis and key phrase extraction via Amazon Comprehend in real-time",
+        "AI-generated executive summaries condensing hundreds of reviews into 3-sentence briefs (Bedrock Claude 3 Haiku)",
+        "Autonomous response agent — reads complaints, checks policies, drafts replies via Bedrock Agents",
+        "Custom ML models on SageMaker: fraud/spam detection, K-Means topic clustering, DeepAR+ trend forecasting",
+        "RAG-powered Q&A grounded in actual review data with Bedrock Guardrails for PII/toxicity filtering",
+        "Multilingual support via Amazon Translate — processes reviews in any language",
+        "Go + Gin API server with React 18 dashboard featuring live metrics and GenAI Lab",
+        "Full Terraform IaC — deploys in 3 minutes, destroys completely, cost ~$0.50 per demo run"
+      ]
+    }
   }
 ];
 
@@ -204,12 +233,13 @@ export default function MyProjects() {
                 className={`project-image${project.id === 4 ? " project-image-nba" : ""}`}
                 style={{ backgroundImage: `url(${project.image})` }}
               >
-                {(project.id === 1 || project.id === 4 || project.id === 5 || project.id === 6) && (
+                {(project.id === 1 || project.id === 4 || project.id === 5 || project.id === 6 || project.id === 7) && (
                   <div className="project-status-badge">
                     {project.id === 1 && "Completed Jan 2026"}
                     {project.id === 4 && "Completed Feb 2026"}
                     {project.id === 5 && "Completed Apr 2026"}
                     {project.id === 6 && "Completed May 2026"}
+                    {project.id === 7 && "Completed May 2026"}
                   </div>
                 )}
               </div>
