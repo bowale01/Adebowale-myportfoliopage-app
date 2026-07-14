@@ -66,6 +66,25 @@ export default function AboutMe() {
 
               <div className="credential-item">
                 <div className="credential-icon">
+                  <i className="fab fa-github"></i>
+                </div>
+                <div className="credential-content">
+                  <h3 className="credential-title">Open Source Contributor</h3>
+                  <p className="credential-text">OpenSRE — Tracer Cloud</p>
+                  <p className="credential-subtext">Fix: Discord classify ValidationError handling (SM-18) — Merged, Greptile Score 5/5</p>
+                  <a 
+                    href="https://github.com/Tracer-Cloud/opensre/pull/3994" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="credential-link"
+                  >
+                    View PR <i className="fas fa-external-link-alt"></i>
+                  </a>
+                </div>
+              </div>
+
+              <div className="credential-item">
+                <div className="credential-icon">
                   <img 
                     src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" 
                     alt="AWS" 
