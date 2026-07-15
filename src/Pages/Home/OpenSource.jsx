@@ -23,7 +23,7 @@ export default function OpenSource() {
       title: "docs(openapi): Add missing endpoints across auth, secrets, storage, and AI",
       description: "Documented undocumented live endpoints across 4 OpenAPI specs — auth (ID-token sign-in, SMTP config, email templates), secrets (API key rotation), storage (config CRUD), and AI (parameterized provider key routes). Reviewed and approved by maintainer. Greptile & Cubic confidence: 5/5.",
       prUrl: "https://github.com/InsForge/InsForge/pull/1690",
-      status: "Approved",
+      status: "Merged",
       date: "Jul 2026",
       tech: ["OpenAPI", "YAML", "REST APIs", "Documentation"]
     }
