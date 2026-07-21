@@ -26,6 +26,18 @@ export default function OpenSource() {
       status: "Merged",
       date: "Jul 2026",
       tech: ["OpenAPI", "YAML", "REST APIs", "Documentation"]
+    },
+    {
+      id: 3,
+      project: "InsForge",
+      org: "InsForge",
+      orgUrl: "https://github.com/InsForge/InsForge",
+      title: "fix: Set app.encryption_key GUC in deploy Docker Compose files",
+      description: "Fixed a bug where schedules with HTTP headers failed because the Postgres GUC app.encryption_key was never set in deploy compose files. Added the command override to both docker-compose.yml and docker-compose.dokploy.yml mirroring the root compose pattern. Greptile & Cubic confidence: 5/5.",
+      prUrl: "https://github.com/InsForge/InsForge/pull/1780",
+      status: "Merged",
+      date: "Jul 2026",
+      tech: ["Docker", "PostgreSQL", "Docker Compose", "DevOps"]
     }
   ];
 
