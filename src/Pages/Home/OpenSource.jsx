@@ -38,6 +38,18 @@ export default function OpenSource() {
       status: "Merged",
       date: "Jul 2026",
       tech: ["Docker", "PostgreSQL", "Docker Compose", "DevOps"]
+    },
+    {
+      id: 4,
+      project: "InsForge",
+      org: "InsForge",
+      orgUrl: "https://github.com/InsForge/InsForge",
+      title: "fix(openapi): Add apiKey security scheme to email, functions, and logs specs",
+      description: "Aligned three OpenAPI specs with the existing authentication pattern — adding the x-api-key header scheme to email (1 operation), functions (5 admin operations), and logs (3 admin operations). Approved by maintainer. Greptile & Cubic confidence: 5/5.",
+      prUrl: "https://github.com/InsForge/InsForge/pull/1778",
+      status: "Merged",
+      date: "Jul 2026",
+      tech: ["OpenAPI", "YAML", "Security", "REST APIs"]
     }
   ];
 
