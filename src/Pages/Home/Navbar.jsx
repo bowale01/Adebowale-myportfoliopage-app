@@ -166,6 +166,26 @@ function Navbar() {
         </div>
         
         <div className="navbar-actions">
+          <a
+            href="https://github.com/bowale01"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="nav-icon-btn"
+            aria-label="GitHub"
+            title="GitHub"
+          >
+            <i className="fab fa-github"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/debolek/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="nav-icon-btn"
+            aria-label="LinkedIn"
+            title="LinkedIn"
+          >
+            <i className="fab fa-linkedin-in"></i>
+          </a>
           <button
             type="button"
             className="theme-toggle-btn"
@@ -175,20 +195,6 @@ function Navbar() {
           >
             <i className={theme === "dark" ? "fas fa-sun" : "fas fa-moon"}></i>
           </button>
-          <div className="navbar-cta">
-            <Link
-              onClick={closeMenu}
-              activeClass="navbar--active-content"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={500}
-              to="Contact"
-              className="btn btn-outline-primary"
-            >
-              Contact Me
-            </Link>
-          </div>
         </div>
 
         <button

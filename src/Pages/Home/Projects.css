@@ -56,6 +56,97 @@
   max-width: 700px;
 }
 
+.open-source-controls {
+  margin-bottom: 2rem;
+  padding: 1.1rem;
+  border-radius: 16px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  background: linear-gradient(180deg, rgba(13, 24, 41, 0.9), rgba(9, 18, 33, 0.88));
+  box-shadow: 0 12px 24px rgba(2, 8, 23, 0.24);
+}
+
+.open-source-search-wrap {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.open-source-search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+}
+
+.open-source-search-input {
+  width: 100%;
+  height: 50px;
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.26);
+  background: rgba(15, 23, 42, 0.72);
+  color: #e2e8f0;
+  font-size: 1rem;
+  padding: 0 1rem 0 2.85rem;
+  transition: border-color var(--motion-fast) var(--motion-ease), box-shadow var(--motion-fast) var(--motion-ease);
+}
+
+.open-source-search-input::placeholder {
+  color: #94a3b8;
+}
+
+.open-source-search-input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(54, 141, 247, 0.22);
+}
+
+.open-source-filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+}
+
+.open-source-filter-btn {
+  border: 1px solid transparent;
+  background: transparent;
+  color: #9fb0c8;
+  font-size: 0.93rem;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 0.55rem 0.92rem;
+  cursor: pointer;
+  transition: color var(--motion-fast) var(--motion-ease), background-color var(--motion-fast) var(--motion-ease), border-color var(--motion-fast) var(--motion-ease);
+}
+
+.open-source-filter-btn:hover {
+  color: #e2e8f0;
+  background: rgba(148, 163, 184, 0.1);
+}
+
+.open-source-filter-btn.active {
+  color: var(--color-accent);
+  border-color: rgba(54, 141, 247, 0.4);
+  background: rgba(54, 141, 247, 0.16);
+}
+
+.open-source-result-count {
+  margin-top: 0.9rem;
+  margin-bottom: 0;
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+.open-source-empty-state {
+  margin-top: 1rem;
+  border: 1px dashed var(--color-border);
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -392,6 +483,24 @@
 @media (max-width: 640px) {
   .projects-grid {
     grid-template-columns: 1fr;
+  }
+
+  .open-source-controls {
+    padding: 0.9rem;
+  }
+
+  .open-source-search-input {
+    height: 46px;
+    font-size: 0.95rem;
+  }
+
+  .open-source-filter-row {
+    gap: 0.45rem;
+  }
+
+  .open-source-filter-btn {
+    font-size: 0.85rem;
+    padding: 0.48rem 0.75rem;
   }
 }
 
