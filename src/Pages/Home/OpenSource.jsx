@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import "./Projects.css";
 
 const contributions = [
@@ -12,7 +12,12 @@ const contributions = [
     prUrl: "https://github.com/Tracer-Cloud/opensre/pull/3994",
     status: "Merged",
     date: "Jul 2026",
-    tech: ["Python", "Pydantic", "Discord", "Testing"]
+    tech: ["Python", "Pydantic", "Discord", "Testing"],
+    keyImprovements: [
+      "Handled ValidationError explicitly in classify() to avoid leaking sensitive field values.",
+      "Applied the proven SM-01 safety pattern for predictable exception behavior.",
+      "Improved reliability and production observability hygiene for Discord vendor flows."
+    ]
   },
   {
     id: 2,
@@ -24,7 +29,12 @@ const contributions = [
     prUrl: "https://github.com/InsForge/InsForge/pull/1690",
     status: "Merged",
     date: "Jul 2026",
-    tech: ["OpenAPI", "YAML", "REST APIs", "Documentation"]
+    tech: ["OpenAPI", "YAML", "REST APIs", "Documentation"],
+    keyImprovements: [
+      "Added missing endpoint documentation across auth, secrets, storage, and AI specs.",
+      "Improved API discoverability for contributors and client integrations.",
+      "Reduced integration ambiguity by aligning spec coverage with live routes."
+    ]
   },
   {
     id: 3,
@@ -36,7 +46,12 @@ const contributions = [
     prUrl: "https://github.com/InsForge/InsForge/pull/1780",
     status: "Merged",
     date: "Jul 2026",
-    tech: ["Docker", "PostgreSQL", "Docker Compose", "DevOps"]
+    tech: ["Docker", "PostgreSQL", "Docker Compose", "DevOps"],
+    keyImprovements: [
+      "Fixed runtime decryption failures by ensuring app.encryption_key is set in deploy compose files.",
+      "Synced dokploy and standard deploy compose behavior with root compose patterns.",
+      "Stabilized scheduled HTTP header execution in deployed environments."
+    ]
   },
   {
     id: 4,
@@ -48,7 +63,12 @@ const contributions = [
     prUrl: "https://github.com/InsForge/InsForge/pull/1778",
     status: "Merged",
     date: "Jul 2026",
-    tech: ["OpenAPI", "YAML", "Security", "REST APIs"]
+    tech: ["OpenAPI", "YAML", "Security", "REST APIs"],
+    keyImprovements: [
+      "Added consistent apiKey security scheme across email, functions, and logs specifications.",
+      "Standardized auth expectations for admin operations.",
+      "Reduced risk of unauthenticated client implementations from incomplete docs."
+    ]
   },
   {
     id: 5,
@@ -60,13 +80,41 @@ const contributions = [
     prUrl: "https://github.com/InsForge/InsForge/pull/1928",
     status: "Merged",
     date: "Aug 2026",
-    tech: ["OpenAPI", "YAML", "API Documentation", "Backend"]
+    tech: ["OpenAPI", "YAML", "API Documentation", "Backend"],
+    keyImprovements: [
+      "Documented both runtime 404 content types for function invoke endpoints.",
+      "Added missing 404 definitions for PUT, PATCH, and DELETE operations.",
+      "Aligned OpenAPI behavior with server fallback content type handling."
+    ]
   }
 ];
 
 export default function OpenSource() {
   const [query, setQuery] = useState("");
   const [activeProject, setActiveProject] = useState("All Projects");
+  const [selectedContribution, setSelectedContribution] = useState(null);
+
+  useEffect(() => {
+    if (!selectedContribution) {
+      return undefined;
+    }
+
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const closeOnEscape = (event) => {
+      if (event.key === "Escape") {
+        setSelectedContribution(null);
+      }
+    };
+
+    window.addEventListener("keydown", closeOnEscape);
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      window.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [selectedContribution]);
 
   const projectFilters = useMemo(() => {
     const uniqueProjects = [...new Set(contributions.map((item) => item.project))];
@@ -181,23 +229,15 @@ export default function OpenSource() {
                     </span>
                   ))}
                 </div>
-                <div className="project-links">
-                  <a 
-                    href={contribution.prUrl} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="project-link-btn"
+                <div className="open-source-card-footer">
+                  <button
+                    type="button"
+                    className="open-source-analyze-btn"
+                    onClick={() => setSelectedContribution(contribution)}
                   >
-                    <i className="fas fa-code-branch"></i> View PR
-                  </a>
-                  <a 
-                    href={contribution.orgUrl} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="project-link-btn"
-                  >
-                    <i className="fab fa-github"></i> Project Repo
-                  </a>
+                    Analyze Details
+                    <i className="fas fa-chevron-right" aria-hidden="true"></i>
+                  </button>
                 </div>
               </div>
             </div>
@@ -210,6 +250,74 @@ export default function OpenSource() {
           </div>
         )}
       </div>
+
+      {selectedContribution && (
+        <div className="project-modal-overlay" onClick={() => setSelectedContribution(null)}>
+          <div className="project-modal open-source-modal" onClick={(event) => event.stopPropagation()}>
+            <button className="modal-close" onClick={() => setSelectedContribution(null)} aria-label="Close details modal">
+              <i className="fas fa-times"></i>
+            </button>
+
+            <div className="open-source-modal-header">
+              <div className="open-source-modal-meta-row">
+                <span className="open-source-modal-project">{selectedContribution.project}</span>
+                <span className="open-source-modal-status">{selectedContribution.status}</span>
+              </div>
+              <h2 className="modal-title open-source-modal-title">{selectedContribution.title}</h2>
+              <a
+                href={selectedContribution.prUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="open-source-modal-pr-link"
+              >
+                <i className="fas fa-external-link-alt" aria-hidden="true"></i>
+                View Pull Request on GitHub
+              </a>
+            </div>
+
+            <div className="modal-section">
+              <h3 className="modal-section-title">Key Improvements & Impact</h3>
+              <ul className="modal-highlights open-source-highlights">
+                {(selectedContribution.keyImprovements || [selectedContribution.description]).map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="modal-section">
+              <h3 className="modal-section-title">Technologies Leveraged</h3>
+              <div className="modal-tech-tags">
+                {selectedContribution.tech.map((techItem, index) => (
+                  <span key={index} className="modal-tech-tag">
+                    {techItem}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="modal-actions">
+              <a
+                href={selectedContribution.prUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="modal-btn modal-btn-primary"
+              >
+                <i className="fas fa-code-branch"></i>
+                Open PR
+              </a>
+              <a
+                href={selectedContribution.orgUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="modal-btn modal-btn-secondary"
+              >
+                <i className="fab fa-github"></i>
+                Open Repository
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

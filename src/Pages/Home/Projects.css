@@ -286,6 +286,99 @@
   background-color: var(--color-accent);
   color: white;
 }
+
+.open-source-card-footer {
+  margin-top: 0.5rem;
+  padding-top: 0.35rem;
+}
+
+.open-source-analyze-btn {
+  width: 100%;
+  border: none;
+  background: transparent;
+  color: #21b0ff;
+  padding: 0.45rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.97rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-top: 1px solid rgba(148, 163, 184, 0.2);
+  transition: color var(--motion-fast) var(--motion-ease), transform var(--motion-fast) var(--motion-ease);
+}
+
+.open-source-analyze-btn:hover {
+  color: #52c7ff;
+}
+
+.open-source-analyze-btn i {
+  font-size: 0.85rem;
+  transition: transform var(--motion-fast) var(--motion-ease);
+}
+
+.open-source-analyze-btn:hover i {
+  transform: translateX(4px);
+}
+
+.open-source-modal {
+  max-width: 760px;
+}
+
+.open-source-modal-header {
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+  margin-bottom: 2rem;
+}
+
+.open-source-modal-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.9rem;
+}
+
+.open-source-modal-project {
+  color: #21b0ff;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.open-source-modal-status {
+  background-color: #10b981;
+  color: #fff;
+  border-radius: 8px;
+  padding: 0.2rem 0.62rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.open-source-modal-title {
+  margin-bottom: 1rem;
+}
+
+.open-source-modal-pr-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #21b0ff;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(33, 176, 255, 0.45);
+  padding-bottom: 0.15rem;
+}
+
+.open-source-modal-pr-link:hover {
+  color: #52c7ff;
+  border-bottom-color: rgba(82, 199, 255, 0.7);
+}
+
+.open-source-highlights li:before {
+  content: "\2192";
+  color: #21b0ff;
+}
 /* Project Modal Styles */
 .project-modal-overlay {
   position: fixed;
@@ -508,6 +601,10 @@
   .project-modal {
     padding: 1.5rem;
     max-height: 85vh;
+  }
+
+  .open-source-modal-meta-row {
+    flex-wrap: wrap;
   }
 
   .modal-title {
