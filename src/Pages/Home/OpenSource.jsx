@@ -49,6 +49,18 @@ const contributions = [
     status: "Merged",
     date: "Jul 2026",
     tech: ["OpenAPI", "YAML", "Security", "REST APIs"]
+  },
+  {
+    id: 5,
+    project: "InsForge",
+    org: "InsForge",
+    orgUrl: "https://github.com/InsForge/InsForge",
+    title: "fix(openapi): document dual 404 content types for function invoke operations",
+    description: "Documented two distinct runtime 404 response shapes for /functions/{slug} invoke routes across GET, POST, PUT, PATCH, and DELETE. Added missing 404 docs for PUT/PATCH/DELETE and aligned spec/runtime behavior with explicit text/plain fallback content type. Merged by maintainer.",
+    prUrl: "https://github.com/InsForge/InsForge/pull/1928",
+    status: "Merged",
+    date: "Aug 2026",
+    tech: ["OpenAPI", "YAML", "API Documentation", "Backend"]
   }
 ];
 
@@ -64,7 +76,8 @@ export default function OpenSource() {
   const filteredContributions = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
 
-    return contributions.filter((contribution) => {
+    return contributions
+      .filter((contribution) => {
       const matchesProject =
         activeProject === "All Projects" || contribution.project === activeProject;
 
@@ -85,7 +98,8 @@ export default function OpenSource() {
         .toLowerCase();
 
       return matchesProject && searchableText.includes(normalizedQuery);
-    });
+    })
+      .sort((a, b) => b.id - a.id);
   }, [activeProject, query]);
 
   return (
