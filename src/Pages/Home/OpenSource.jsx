@@ -93,6 +93,12 @@ export default function OpenSource() {
   const [query, setQuery] = useState("");
   const [activeProject, setActiveProject] = useState("All Projects");
   const [selectedContribution, setSelectedContribution] = useState(null);
+  const hasActiveFilters = query.trim().length > 0 || activeProject !== "All Projects";
+
+  const resetFilters = () => {
+    setQuery("");
+    setActiveProject("All Projects");
+  };
 
   useEffect(() => {
     if (!selectedContribution) {
@@ -196,9 +202,21 @@ export default function OpenSource() {
             ))}
           </div>
 
-          <p className="open-source-result-count">
-            Showing {filteredContributions.length} of {contributions.length} contributions
-          </p>
+          <div className="open-source-results-row">
+            <p className="open-source-result-count">
+              Showing {filteredContributions.length} of {contributions.length} contributions
+            </p>
+            {hasActiveFilters && (
+              <button
+                type="button"
+                className="open-source-reset-btn"
+                onClick={resetFilters}
+                aria-label="Reset project and search filters"
+              >
+                Reset Filters
+              </button>
+            )}
+          </div>
         </div>
 
         <div className="projects-grid">

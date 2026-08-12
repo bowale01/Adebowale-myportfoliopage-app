@@ -138,6 +138,33 @@
   font-size: 0.9rem;
 }
 
+.open-source-results-row {
+  margin-top: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.open-source-results-row .open-source-result-count {
+  margin-top: 0;
+}
+
+.open-source-reset-btn {
+  border: none;
+  background: transparent;
+  color: #21b0ff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  transition: color var(--motion-fast) var(--motion-ease);
+}
+
+.open-source-reset-btn:hover {
+  color: #52c7ff;
+}
+
 .open-source-empty-state {
   margin-top: 1rem;
   border: 1px dashed var(--color-border);
@@ -594,6 +621,12 @@
   .open-source-filter-btn {
     font-size: 0.85rem;
     padding: 0.48rem 0.75rem;
+  }
+
+  .open-source-results-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
   }
 }
 
