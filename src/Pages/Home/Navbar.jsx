@@ -5,6 +5,7 @@ import "./Navbar.css";
 function Navbar() {
   const [navActive, setNavActive] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [theme, setTheme] = useState("light");
 
   const toggleNav = () => {
     setNavActive(!navActive);
@@ -13,6 +14,18 @@ function Navbar() {
   const closeMenu = () => {
     setNavActive(false);
   };
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("portfolio-theme");
+    const nextTheme = savedTheme === "dark" ? "dark" : "light";
+    setTheme(nextTheme);
+    document.documentElement.setAttribute("data-theme", nextTheme);
+  }, []);
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("portfolio-theme", theme);
+  }, [theme]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -47,6 +60,10 @@ function Navbar() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  };
 
   return (
     <nav className={`navbar ${navActive ? "active" : ""} ${scrolled ? "scrolled" : ""}`}>
@@ -148,19 +165,30 @@ function Navbar() {
           </ul>
         </div>
         
-        <div className="navbar-cta">
-          <Link
-            onClick={closeMenu}
-            activeClass="navbar--active-content"
-            spy={true}
-            smooth={true}
-            offset={-70}
-            duration={500}
-            to="Contact"
-            className="btn btn-outline-primary"
+        <div className="navbar-actions">
+          <button
+            type="button"
+            className="theme-toggle-btn"
+            onClick={toggleTheme}
+            aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+            title={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
           >
-            Contact Me
-          </Link>
+            <i className={theme === "dark" ? "fas fa-sun" : "fas fa-moon"}></i>
+          </button>
+          <div className="navbar-cta">
+            <Link
+              onClick={closeMenu}
+              activeClass="navbar--active-content"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+              to="Contact"
+              className="btn btn-outline-primary"
+            >
+              Contact Me
+            </Link>
+          </div>
         </div>
 
         <button

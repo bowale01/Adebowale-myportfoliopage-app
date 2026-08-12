@@ -1,7 +1,7 @@
 /* Projects Section Styles */
 .projects-section {
   padding: 5rem 2rem;
-  background-color: #ffffff;
+  background-color: var(--color-surface);
 }
 
 .projects-container {
@@ -21,19 +21,19 @@
 .section-heading {
   font-size: 2.25rem;
   font-weight: 700;
-  color: #000000;
+  color: var(--color-text-primary);
   display: flex;
   align-items: center;
   gap: 0.75rem;
 }
 
 .section-icon {
-  color: #3b82f6;
+  color: var(--color-accent);
 }
 
 .view-all-btn {
   padding: 0.75rem 1.5rem;
-  background-color: #3b82f6;
+  background-color: var(--color-accent);
   color: white;
   border-radius: 8px;
   text-decoration: none;
@@ -45,12 +45,12 @@
 }
 
 .view-all-btn:hover {
-  background-color: #2563eb;
+  background-color: var(--color-accent-hover);
   transform: translateY(-2px);
 }
 
 .section-description {
-  color: #6b7280;
+  color: var(--color-text-muted);
   font-size: 1rem;
   margin-bottom: 3rem;
   max-width: 700px;
@@ -63,16 +63,23 @@
 }
 
 .project-card {
-  background: #ffffff;
+  background: var(--color-surface);
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  animation: fade-up var(--motion-slow) var(--motion-ease) forwards;
 }
+
+.projects-grid .project-card:nth-child(1) { animation-delay: 90ms; }
+.projects-grid .project-card:nth-child(2) { animation-delay: 150ms; }
+.projects-grid .project-card:nth-child(3) { animation-delay: 210ms; }
 
 .project-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-md);
 }
 
 .project-image {
@@ -80,7 +87,7 @@
   height: 200px;
   background-size: cover;
   background-position: center;
-  background-color: #e5e7eb;
+  background-color: var(--color-surface-muted);
   position: relative;
 }
 
@@ -118,12 +125,12 @@
 .project-title {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #000000;
+  color: var(--color-text-primary);
   margin-bottom: 0.75rem;
 }
 
 .project-description {
-  color: #6b7280;
+  color: var(--color-text-secondary);
   font-size: 0.95rem;
   line-height: 1.5;
   margin-bottom: 1rem;
@@ -138,8 +145,8 @@
 
 .tech-tag {
   padding: 0.25rem 0.75rem;
-  background-color: #eff6ff;
-  color: #3b82f6;
+  background-color: var(--color-accent-soft);
+  color: var(--color-accent);
   border-radius: 20px;
   font-size: 0.8rem;
   font-weight: 500;
@@ -147,8 +154,8 @@
 
 .tech-tag-with-icon {
   padding: 0.25rem 0.75rem;
-  background-color: #eff6ff;
-  color: #3b82f6;
+  background-color: var(--color-accent-soft);
+  color: var(--color-accent);
   border-radius: 20px;
   font-size: 0.8rem;
   font-weight: 500;
@@ -171,8 +178,8 @@
 .project-link-btn {
   flex: 1;
   padding: 0.75rem 1rem;
-  border: 2px solid #3b82f6;
-  color: #3b82f6;
+  border: 2px solid var(--color-accent);
+  color: var(--color-accent);
   border-radius: 8px;
   text-decoration: none;
   text-align: center;
@@ -181,11 +188,11 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  transition: all 0.3s ease;
+  transition: all var(--motion-fast) var(--motion-ease);
 }
 
 .project-link-btn:hover {
-  background-color: #3b82f6;
+  background-color: var(--color-accent);
   color: white;
 }
 /* Project Modal Styles */
@@ -195,7 +202,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: var(--color-overlay);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -205,7 +212,7 @@
 }
 
 .project-modal {
-  background: white;
+  background: var(--color-surface);
   border-radius: 16px;
   padding: 2.5rem;
   max-width: 800px;
@@ -213,7 +220,8 @@
   max-height: 90vh;
   overflow-y: auto;
   position: relative;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--color-border);
 }
 
 .modal-close {
@@ -223,19 +231,19 @@
   background: none;
   border: none;
   font-size: 1.5rem;
-  color: #666;
+  color: var(--color-text-muted);
   cursor: pointer;
   transition: color 0.3s ease;
 }
 
 .modal-close:hover {
-  color: #000;
+  color: var(--color-text-primary);
 }
 
 .modal-title {
   font-size: 2rem;
   font-weight: 700;
-  color: #000;
+  color: var(--color-text-primary);
   margin-bottom: 2rem;
   padding-right: 3rem;
 }
@@ -247,7 +255,7 @@
 .modal-section-title {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #3b82f6;
+  color: var(--color-accent);
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
@@ -255,7 +263,7 @@
 }
 
 .modal-text {
-  color: #444;
+  color: var(--color-text-secondary);
   line-height: 1.7;
   font-size: 1rem;
 }
@@ -277,7 +285,7 @@
 .tech-category-title {
   font-size: 1rem;
   font-weight: 600;
-  color: #666;
+  color: var(--color-text-muted);
   margin-bottom: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -285,8 +293,8 @@
 
 .modal-tech-tag {
   padding: 0.5rem 1rem;
-  background-color: #eff6ff;
-  color: #3b82f6;
+  background-color: var(--color-accent-soft);
+  color: var(--color-accent);
   border-radius: 20px;
   font-size: 0.9rem;
   font-weight: 500;
@@ -294,8 +302,8 @@
 
 .modal-tech-tag-with-icon {
   padding: 0.5rem 1rem;
-  background-color: #eff6ff;
-  color: #3b82f6;
+  background-color: var(--color-accent-soft);
+  color: var(--color-accent);
   border-radius: 20px;
   font-size: 0.9rem;
   font-weight: 500;
@@ -319,7 +327,7 @@
 .modal-highlights li {
   padding-left: 1.75rem;
   margin-bottom: 0.75rem;
-  color: #444;
+  color: var(--color-text-secondary);
   line-height: 1.6;
   position: relative;
 }
@@ -328,7 +336,7 @@
   content: "✓";
   position: absolute;
   left: 0;
-  color: #3b82f6;
+  color: var(--color-accent);
   font-weight: bold;
   font-size: 1.2rem;
 }
@@ -338,7 +346,7 @@
   gap: 1rem;
   margin-top: 2rem;
   padding-top: 2rem;
-  border-top: 1px solid #e5e7eb;
+  border-top: 1px solid var(--color-border);
 }
 
 .modal-btn {
@@ -356,23 +364,23 @@
 }
 
 .modal-btn-primary {
-  background-color: #3b82f6;
+  background-color: var(--color-accent);
   color: white;
 }
 
 .modal-btn-primary:hover {
-  background-color: #2563eb;
+  background-color: var(--color-accent-hover);
   transform: translateY(-2px);
 }
 
 .modal-btn-secondary {
-  background-color: white;
-  color: #3b82f6;
-  border: 2px solid #3b82f6;
+  background-color: var(--color-surface);
+  color: var(--color-accent);
+  border: 2px solid var(--color-accent);
 }
 
 .modal-btn-secondary:hover {
-  background-color: #eff6ff;
+  background-color: var(--color-accent-soft);
 }
 
 @media (max-width: 1024px) {

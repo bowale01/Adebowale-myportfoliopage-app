@@ -1,16 +1,18 @@
 /* Footer Styles */
 .footer--container {
-  background-color: #0f1824;
+  background-color: var(--color-hero-bg);
   padding: 0 0 40px;
   color: #ffffff;
   width: 100%;
 }
 
 .footer--cta {
-  background-color: #152338;
+  background-color: color-mix(in srgb, var(--color-hero-bg) 82%, var(--color-accent) 18%);
   padding: 80px 20px;
   text-align: center;
   margin-bottom: 60px;
+  opacity: 0;
+  animation: fade-in var(--motion-slow) var(--motion-ease) 120ms forwards;
 }
 
 .footer--cta--title {
@@ -30,7 +32,7 @@
 
 .footer--cta--button {
   display: inline-block;
-  background-color: #2563eb;
+  background-color: var(--color-accent);
   color: white;
   padding: 12px 30px;
   border-radius: 8px;
@@ -41,8 +43,8 @@
 }
 
 .footer--cta--button:hover {
-  background-color: white;
-  color: #2563eb;
+  background-color: var(--color-accent-hover);
+  color: white;
 }
 
 .footer--content--wrapper {
@@ -53,6 +55,8 @@
   margin-bottom: 60px;
   flex-wrap: wrap;
   gap: 2rem;
+  opacity: 0;
+  animation: fade-up var(--motion-slow) var(--motion-ease) 180ms forwards;
 }
 
 .footer--branding .footer--logo-text {
@@ -83,7 +87,7 @@
 }
 
 .footer--items a:hover {
-  color: #3b82f6;
+  color: var(--color-accent);
 }
 
 .social-link {
@@ -101,7 +105,7 @@
 }
 
 .social-link:hover {
-  background-color: #3b82f6;
+  background-color: var(--color-accent);
   transform: translateY(-3px);
 }
 
@@ -114,6 +118,8 @@
 .footer--bottom {
   text-align: center;
   padding: 0 85px;
+  opacity: 0;
+  animation: fade-in var(--motion-slow) var(--motion-ease) 260ms forwards;
 }
 
 .footer--content {
