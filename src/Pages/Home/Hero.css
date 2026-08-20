@@ -6,11 +6,11 @@
     radial-gradient(circle at 10% 20%, rgba(47, 129, 247, 0.24), transparent 40%),
     radial-gradient(circle at 90% 10%, rgba(54, 141, 247, 0.2), transparent 36%),
     var(--color-hero-bg);
-  min-height: 100vh;
+  min-height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 9rem 1.5rem 2rem;
+  padding: 7rem 1.5rem 4rem;
   position: relative;
   z-index: 0;
   margin-bottom: 2rem;
