@@ -103,6 +103,23 @@ const contributions = [
       "Added named examples (cloud vs self-hosted) for JSON response bodies.",
       "Clarified Content-Type branching guidance for generated API clients."
     ]
+  },
+  {
+    id: 7,
+    project: "Kong Operator",
+    org: "Kong",
+    orgUrl: "https://github.com/Kong/kong-operator",
+    title: "fix(hybridgateway): Propagate konghq.com/tags to generated KongPlugin copies",
+    description: "Fixed a bug where the hybrid gateway controller never forwarded konghq.com/tags annotations from HTTPRoute/GRPCRoute to generated KongPlugin copies, causing Konnect Plugin entities to lose user-specified tags. Added WithTagsAnnotation() to KongPluginBuilder with deduplication across multiple sources. Merged into Kong's main branch.",
+    prUrl: "https://github.com/Kong/kong-operator/pull/5284",
+    status: "Merged",
+    date: "Aug 2026",
+    tech: ["Go", "Kubernetes", "Operators", "Kong"],
+    keyImprovements: [
+      "Fixed tag propagation from routes to generated KongPlugin copies in hybrid gateway mode.",
+      "Added WithTagsAnnotation() builder method with tag deduplication across multiple source objects.",
+      "Contributed to Kong — a major CNCF project (API gateway used by thousands of companies)."
+    ]
   }
 ];
 
