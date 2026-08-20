@@ -40,7 +40,11 @@ export default function MyProjects() {
     "Amazon Comprehend": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
     "Amazon SageMaker": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
     "DynamoDB": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
-    "Amazon Translate": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg"
+    "Amazon Translate": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+    "LangChain": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%231C3C3C'/%3E%3Ctext x='50' y='60' text-anchor='middle' font-size='30' font-weight='bold' fill='white'%3ELC%3C/text%3E%3C/svg%3E",
+    "LangGraph": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%231C3C3C'/%3E%3Ctext x='50' y='60' text-anchor='middle' font-size='30' font-weight='bold' fill='white'%3ELG%3C/text%3E%3C/svg%3E",
+    "EKS": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+    "Kubernetes": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-original.svg"
   };
 
   const projects = [
@@ -206,6 +210,32 @@ export default function MyProjects() {
         "Full Terraform IaC — deploys in 3 minutes, destroys completely, cost ~$0.50 per demo run"
       ]
     }
+  },
+  {
+    id: 8,
+    title: "AI-Powered Incident Response Agent",
+    description: "Intelligent agent that automatically triages, investigates, and recommends remediation for infrastructure incidents. Built with LangChain, LangGraph, Amazon Bedrock, and deployed on AWS EKS with Terraform.",
+    image: "https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=600&q=80",
+    tech: ["Python", "LangChain", "LangGraph", "Amazon Bedrock", "EKS", "Kubernetes", "Terraform", "Docker"],
+    repoUrl: "https://github.com/bowale01/ai-incident-response-agent",
+    demoUrl: "https://github.com/bowale01/ai-incident-response-agent",
+    details: {
+      overview: "Built an AI-powered incident response agent that automatically triages CloudWatch alarms, investigates root causes using real AWS tools, correlates with past incidents via RAG over runbooks, and recommends remediation with human-in-the-loop approval via Slack. Uses LangGraph state machine for multi-step workflow orchestration, Amazon Bedrock Claude 3.5 Sonnet for reasoning, ChromaDB for vector search, and LangSmith for full observability. Deployed on EKS with Karpenter for spot instance autoscaling.",
+      techStack: {
+        infrastructure: ["EKS", "Kubernetes", "Terraform", "Amazon Bedrock", "DynamoDB", "AWS", "Docker", "CloudFormation"],
+        development: ["Python", "LangChain", "LangGraph", "Docker"]
+      },
+      highlights: [
+        "LangGraph state machine workflow: Triage → Investigate → Correlate → Recommend → Approve → Execute",
+        "Amazon Bedrock (Claude 3.5 Sonnet) for severity classification, log analysis, and remediation generation",
+        "RAG pipeline: ChromaDB + Bedrock Titan embeddings over S3-stored runbooks for incident correlation",
+        "Human-in-the-loop: agent pauses at approval gate, notifies via Slack, persists state in DynamoDB",
+        "Real AWS tool integration: agent queries CloudWatch Logs/Metrics, ECS, DynamoDB in real-time",
+        "EKS + Karpenter for spot instance autoscaling (~60% compute cost savings)",
+        "Full Terraform IaC with modular design: VPC, EKS, DynamoDB, S3, SNS, IAM, Secrets Manager",
+        "LangSmith observability: traces every agent run, tracks latency/cost per investigation"
+      ]
+    }
   }
 ];
 
@@ -233,13 +263,14 @@ export default function MyProjects() {
                 className={`project-image${project.id === 4 ? " project-image-nba" : ""}`}
                 style={{ backgroundImage: `url(${project.image})` }}
               >
-                {(project.id === 1 || project.id === 4 || project.id === 5 || project.id === 6 || project.id === 7) && (
+                {(project.id === 1 || project.id === 4 || project.id === 5 || project.id === 6 || project.id === 7 || project.id === 8) && (
                   <div className="project-status-badge">
                     {project.id === 1 && "Completed Jan 2026"}
                     {project.id === 4 && "Completed Feb 2026"}
                     {project.id === 5 && "Completed Apr 2026"}
                     {project.id === 6 && "Completed May 2026"}
                     {project.id === 7 && "Completed May 2026"}
+                    {project.id === 8 && "Completed Aug 2026"}
                   </div>
                 )}
               </div>
