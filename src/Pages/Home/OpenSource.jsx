@@ -86,6 +86,23 @@ const contributions = [
       "Added missing 404 definitions for PUT, PATCH, and DELETE operations.",
       "Aligned OpenAPI behavior with server fallback content type handling."
     ]
+  },
+  {
+    id: 6,
+    project: "InsForge",
+    org: "InsForge",
+    orgUrl: "https://github.com/InsForge/InsForge",
+    title: "fix(openapi): Add cloud Subhosting 404 variant to function invoke spec",
+    description: "Documented the third 404 response body shape for cloud deployments (Deno Subhosting) that caused generated clients to reject it. Added named examples for cloud vs self-hosted JSON variants and clarified Content-Type branching guidance. Approved and merged by maintainer. Greptile & Cubic confidence: 5/5.",
+    prUrl: "https://github.com/InsForge/InsForge/pull/1980",
+    status: "Merged",
+    date: "Aug 2026",
+    tech: ["OpenAPI", "YAML", "Deno", "REST APIs"],
+    keyImprovements: [
+      "Documented third 404 variant for cloud Deno Subhosting deployments.",
+      "Added named examples (cloud vs self-hosted) for JSON response bodies.",
+      "Clarified Content-Type branching guidance for generated API clients."
+    ]
   }
 ];
 
