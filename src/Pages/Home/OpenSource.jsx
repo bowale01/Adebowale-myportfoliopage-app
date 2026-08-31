@@ -120,6 +120,23 @@ const contributions = [
       "Added WithTagsAnnotation() builder method with tag deduplication across multiple source objects.",
       "Contributed to Kong — a major CNCF project (API gateway used by thousands of companies)."
     ]
+  },
+  {
+    id: 8,
+    project: "OpenSRE",
+    org: "Tracer Cloud",
+    orgUrl: "https://github.com/Tracer-Cloud/opensre",
+    title: "docs(aws): Add local verification recipe for the AWS integration",
+    description: "Added an end-to-end 'Local verification recipe' to the AWS integration docs — covering credential bring-up (SSO export and static keys), running the verifier, exercising the read-only execute_aws_operation tool against a live account, and a full teardown across all three credential tiers (integration store, project .env, and ~/.opensre/credentials.json). Merged into OpenSRE's main branch.",
+    prUrl: "https://github.com/Tracer-Cloud/opensre/pull/5875",
+    status: "Merged",
+    date: "Aug 2026",
+    tech: ["Documentation", "AWS", "Python", "DevOps"],
+    keyImprovements: [
+      "Documented a reproducible bring-up → verify → exercise → teardown flow for the AWS integration.",
+      "Clarified that execute_aws_operation is read-only and how to call it directly via the tool registry.",
+      "Prevented lingering credentials by documenting cleanup across the store, project .env, and local secret file."
+    ]
   }
 ];
 
