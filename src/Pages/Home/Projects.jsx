@@ -44,7 +44,12 @@ export default function MyProjects() {
     "LangChain": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%231C3C3C'/%3E%3Ctext x='50' y='60' text-anchor='middle' font-size='30' font-weight='bold' fill='white'%3ELC%3C/text%3E%3C/svg%3E",
     "LangGraph": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%231C3C3C'/%3E%3Ctext x='50' y='60' text-anchor='middle' font-size='30' font-weight='bold' fill='white'%3ELG%3C/text%3E%3C/svg%3E",
     "EKS": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
-    "Kubernetes": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-original.svg"
+    "Kubernetes": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-original.svg",
+    "PyTorch": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg",
+    "CUDA": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='12' fill='%2376b900'/%3E%3Ctext x='50' y='62' text-anchor='middle' font-size='30' font-weight='bold' fill='white'%3ECU%3C/text%3E%3C/svg%3E",
+    "NVIDIA T4 GPU": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='12' fill='%2376b900'/%3E%3Ctext x='50' y='62' text-anchor='middle' font-size='28' font-weight='bold' fill='white'%3EGPU%3C/text%3E%3C/svg%3E",
+    "AWS SSM": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+    "S3": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg"
   };
 
   const projects = [
@@ -234,6 +239,31 @@ export default function MyProjects() {
         "EKS + Karpenter for spot instance autoscaling (~60% compute cost savings)",
         "Full Terraform IaC with modular design: VPC, EKS, DynamoDB, S3, SNS, IAM, Secrets Manager",
         "LangSmith observability: traces every agent run, tracks latency/cost per investigation"
+      ]
+    }
+  },
+  {
+    id: 9,
+    title: "AI Infra Lab — CPU vs GPU Performance for Machine Learning",
+    description: "Hands-on AI infrastructure project that provisions a GPU-backed AWS EC2 instance (NVIDIA Tesla T4) with Terraform, runs PyTorch CPU-vs-GPU benchmarks, publishes the charts, and tears everything down — so you never pay for an idle GPU.",
+    image: "https://images.unsplash.com/photo-1591405351990-4726e331f141?w=600&q=80",
+    tech: ["Terraform", "AWS", "PyTorch", "CUDA", "NVIDIA T4 GPU", "AWS SSM", "S3", "Python"],
+    repoUrl: "https://github.com/bowale01/ai-infra-gpu-lab",
+    demoUrl: "https://github.com/bowale01/ai-infra-gpu-lab",
+    details: {
+      overview: "Built as a portfolio piece for AI Infrastructure / GPU / HPC work. Terraform provisions an AWS EC2 GPU instance (NVIDIA T4 on the Deep Learning AMI), PyTorch/CUDA run the CPU-vs-GPU benchmarks, and access is via AWS SSM Session Manager — no SSH and no open ports. Terraform state lives remotely in S3 with DynamoDB locking. Everything is defined as code: spin the environment up with one command, run the benchmarks, publish the results, then terraform destroy so the accelerator never sits idle. It proves the full loop an infra engineer owns end-to-end on live AWS hardware — a real GPU server provisioned, secured, benchmarked, and torn down.",
+      techStack: {
+        infrastructure: ["AWS", "AWS EC2", "NVIDIA T4 GPU", "AWS SSM", "S3", "DynamoDB", "Terraform"],
+        development: ["Python", "PyTorch", "CUDA", "Bash", "Terraform"]
+      },
+      highlights: [
+        "GPU compute provisioned as code with Terraform — reproducible and disposable",
+        "SSM-only access (no SSH, no open ports) with a least-privilege IAM role",
+        "Remote Terraform state in S3 with DynamoDB state locking",
+        "Real CPU-vs-GPU benchmarks on an NVIDIA Tesla T4 (16 GB) using PyTorch + CUDA",
+        "Verified live on hardware via nvidia-smi and PyTorch CUDA checks through SSM Session Manager",
+        "Cost discipline: accelerator runs for minutes, is auto-shutdown-protected, and destroyed when done",
+        "Published benchmark charts showing where the GPU wins (and where it doesn't)"
       ]
     }
   }
