@@ -293,7 +293,7 @@ export default function MyProjects() {
                 className={`project-image${project.id === 4 ? " project-image-nba" : ""}`}
                 style={{ backgroundImage: `url(${project.image})` }}
               >
-                {(project.id === 1 || project.id === 4 || project.id === 5 || project.id === 6 || project.id === 7 || project.id === 8) && (
+                {(project.id === 1 || project.id === 4 || project.id === 5 || project.id === 6 || project.id === 7 || project.id === 8 || project.id === 9) && (
                   <div className="project-status-badge">
                     {project.id === 1 && "Completed Jan 2026"}
                     {project.id === 4 && "Completed Feb 2026"}
@@ -301,6 +301,7 @@ export default function MyProjects() {
                     {project.id === 6 && "Completed May 2026"}
                     {project.id === 7 && "Completed May 2026"}
                     {project.id === 8 && "Completed Aug 2026"}
+                    {project.id === 9 && "Completed Sep 2026"}
                   </div>
                 )}
               </div>
