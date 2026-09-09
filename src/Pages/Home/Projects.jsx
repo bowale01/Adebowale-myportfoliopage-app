@@ -115,13 +115,13 @@ export default function MyProjects() {
   {
     id: 4,
     title: "NBA GamePredict AI Agent",
-    description: "Intelligent AI-powered NBA betting prediction system combining real ESPN H2H data with dual AI validation for professional-grade betting intelligence and capital protection.",
+    description: "Intelligent AI-powered NBA game outcome prediction system combining real ESPN H2H data with dual AI validation for high-confidence sports analytics.",
     image: "https://upload.wikimedia.org/wikipedia/en/0/03/National_Basketball_Association_logo.svg",
     tech: ["Python", "FastAPI", "OpenAI", "Amazon Bedrock", "Agentic AI", "ESPN API", "AWS"],
     repoUrl: "https://github.com/bowale01/nba-gamepredict-ai-agent",
     demoUrl: "https://github.com/bowale01/nba-gamepredict-ai-agent",
     details: {
-      overview: "Built a hybrid AI-powered NBA betting prediction system that combines real ESPN H2H game data with dual AI validation layers for high-confidence predictions. The system uses an agentic AI approach with autonomous decision-making, integrating GPT-4o and Amazon Bedrock Claude for comprehensive data validation and capital protection. Only recommends bets with 85%+ confidence threshold.",
+      overview: "Built a hybrid AI-powered NBA game outcome prediction system that combines real ESPN H2H game data with dual AI validation layers for high-confidence forecasts. The system uses an agentic AI approach with autonomous decision-making, integrating GPT-4o and Amazon Bedrock Claude for comprehensive data validation and quality control. Only surfaces predictions that clear an 85%+ confidence threshold.",
       techStack: {
         infrastructure: ["AWS", "Amazon Bedrock", "FastAPI", "Docker"],
         development: ["Python", "OpenAI", "Agentic AI", "ESPN API"]
@@ -130,8 +130,8 @@ export default function MyProjects() {
         "Hybrid architecture combining real ESPN API H2H data with zero fallback/simulated data",
         "Dual AI validation layers: GPT-4o for historical context + Bedrock Claude for data quality checking",
         "Agentic AI agent with autonomous decision-making and reasoning capabilities",
-        "Capital protection through rigorous 85% confidence threshold enforcement",
-        "Multi-market support: Moneyline, Over/Under, Player Props, Halftime predictions",
+        "Prediction quality control through rigorous 85% confidence threshold enforcement",
+        "Multi-dimensional forecasts: game winner, total points, player performance, and half-by-half outcomes",
         "Real-time H2H analysis, injury detection, and current form analysis",
         "FastAPI REST service with Swagger documentation for easy integration",
         "AWS serverless deployment with SAM templates and cost optimization"
