@@ -251,7 +251,7 @@ export default function MyProjects() {
     repoUrl: "https://github.com/bowale01/ai-infra-gpu-lab",
     demoUrl: "https://github.com/bowale01/ai-infra-gpu-lab",
     details: {
-      overview: "Built as a portfolio piece for AI Infrastructure / GPU / HPC work. Terraform provisions an AWS EC2 GPU instance (NVIDIA T4 on the Deep Learning AMI), PyTorch/CUDA run the CPU-vs-GPU benchmarks, and access is via AWS SSM Session Manager — no SSH and no open ports. Terraform state lives remotely in S3 with DynamoDB locking. Everything is defined as code: spin the environment up with one command, run the benchmarks, publish the results, then terraform destroy so the accelerator never sits idle. It proves the full loop an infra engineer owns end-to-end on live AWS hardware — a real GPU server provisioned, secured, benchmarked, and torn down.",
+      overview: "A production-grade AI Infrastructure / GPU / HPC environment. Terraform provisions an AWS EC2 GPU instance (NVIDIA T4 on the Deep Learning AMI), PyTorch/CUDA run the CPU-vs-GPU benchmarks, and access is via AWS SSM Session Manager — no SSH and no open ports. Terraform state lives remotely in S3 with DynamoDB locking. Everything is defined as code: spin the environment up with one command, run the benchmarks, publish the results, then terraform destroy so the accelerator never sits idle. It demonstrates the full loop an infra engineer owns end-to-end on live AWS hardware — a real GPU server provisioned, secured, benchmarked, and torn down.",
       techStack: {
         infrastructure: ["AWS", "AWS EC2", "NVIDIA T4 GPU", "AWS SSM", "S3", "DynamoDB", "Terraform"],
         development: ["Python", "PyTorch", "CUDA", "Bash", "Terraform"]
